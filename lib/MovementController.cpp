@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2025 Boonyakorn Thanpanit
+ */
+
+#include "MovementController.h"
+
+int32_t MovementController::AzimuthToSteps(float azimuth) {
+  return static_cast<int32_t>(azimuth * steps_per_radian_az_);
+}
+
+int32_t MovementController::AltitudeToSteps(float altitude) {
+  return static_cast<int32_t>(altitude * steps_per_radian_al_);
+}
+
+MovementController* MovementController::GetInstance() {
+  if (instance_ == nullptr) {
+    instance_ = new MovementController();
+  }
+  return instance_;
+}
+
+void MovementController::AttachAzimuthMotor(uint8_t step_pin, uint8_t dir_pin,
+                                            float steps_per_radian) {
+  az_ = new AccelStepper(AccelStepper::DRIVER, step_pin, dir_pin);
+  steps_per_radian_az_ = steps_per_radian;
+}
+
+void MovementController::AttachAltitudeMotor(uint8_t step_pin, uint8_t dir_pin,
+                                             float steps_per_radian) {
+  al_ = new AccelStepper(AccelStepper::DRIVER, step_pin, dir_pin);
+  steps_per_radian_al_ = steps_per_radian;
+}
+
+bool MovementController::MoveTo(float azimuth, float altitude) {
+  if (altitude >= 0 && altitude <= HALF_PI) {
+    az_->moveTo(AzimuthToSteps(azimuth));
+    al_->moveTo(AltitudeToSteps(altitude));
+    return true;
+  }
+  return false;
+}
+
+void MovementController::SetCurrentPosition(float azimuth, float altitude) {
+  az_->setCurrentPosition(AzimuthToSteps(azimuth));
+  al_->setCurrentPosition(AltitudeToSteps(altitude));
+}
+
+void MovementController::SetJogStepAngle(float angle) {
+  jog_steps_az_ = AzimuthToSteps(angle);
+  jog_steps_al_ = AltitudeToSteps(angle);
+}
+
+void MovementController::JogEast() { az_->move(jog_steps_az_); }
+
+void MovementController::JogWest() { az_->move(-jog_steps_az_); }
+
+void MovementController::JogUp() {
+  if (al_->targetPosition() < HALF_PI) {
+    al_->move(jog_steps_al_);
+  }
+}
+
+void MovementController::JogDown() {
+  if (al_->targetPosition() > 0) {
+    al_->move(-jog_steps_al_);
+  }
+}
+
+bool MovementController::Run() { return az_->run() || al_->run(); }
+
+void MovementController::Stop() {
+  az_->stop();
+  al_->stop();
+  while (Run()) {
+  }  // decelerate to stop
+}
+
+MovementController::~MovementController() {
+  delete az_;
+  delete al_;
+}
