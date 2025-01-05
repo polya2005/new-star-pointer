@@ -2,8 +2,8 @@
  * Copyright (c) 2024 Boonyakorn Thanpanit
  */
 
-#ifndef LIB_TEMPDEBUG_H_
-#define LIB_TEMPDEBUG_H_
+#ifndef LIB_TEMPDEBUG_TEMPDEBUG_H_
+#define LIB_TEMPDEBUG_TEMPDEBUG_H_
 
 #ifdef DEBUG
 #define debug1(x) Serial.print(x)
@@ -23,4 +23,4 @@
 #define debugln(...) GET_MACRO(__VA_ARGS__, debugln2, debugln1)(__VA_ARGS__)
 #endif
 
-#endif  // LIB_TEMPDEBUG_H_
+#endif  // LIB_TEMPDEBUG_TEMPDEBUG_H_

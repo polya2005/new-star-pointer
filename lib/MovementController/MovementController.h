@@ -2,8 +2,8 @@
  * Copyright (c) 2025 Boonyakorn Thanpanit
  */
 
-#ifndef LIB_MOVEMENTCONTROLLER_H_
-#define LIB_MOVEMENTCONTROLLER_H_
+#ifndef LIB_MOVEMENTCONTROLLER_MOVEMENTCONTROLLER_H_
+#define LIB_MOVEMENTCONTROLLER_MOVEMENTCONTROLLER_H_
 
 #include <AccelStepper.h>
 
@@ -72,4 +72,4 @@ class MovementController {
 
 MovementController* MovementController::instance_ = nullptr;
 
-#endif  // LIB_MOVEMENTCONTROLLER_H_
+#endif  // LIB_MOVEMENTCONTROLLER_MOVEMENTCONTROLLER_H_
