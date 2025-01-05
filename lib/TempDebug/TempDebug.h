@@ -14,13 +14,8 @@
 #define debug(...) GET_MACRO(__VA_ARGS__, debug2, debug1)(__VA_ARGS__)
 #define debugln(...) GET_MACRO(__VA_ARGS__, debugln2, debugln1)(__VA_ARGS__)
 #else
-#define debug1(x)
-#define debugln1(x)
-#define debug2(x, y)
-#define debugln2(x, y)
-#define GET_MACRO(_1, _2, NAME, ...) NAME
-#define debug(...) GET_MACRO(__VA_ARGS__, debug2, debug1)(__VA_ARGS__)
-#define debugln(...) GET_MACRO(__VA_ARGS__, debugln2, debugln1)(__VA_ARGS__)
+#define debug(...)
+#define debugln(...)
 #endif
 
 #endif  // LIB_TEMPDEBUG_TEMPDEBUG_H_
