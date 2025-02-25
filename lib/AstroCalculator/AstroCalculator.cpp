@@ -33,3 +33,18 @@ EquatorialCoordinates AstroCalculator::HorizontalToEquatorial(float azimuth,
   if (ra < 0) ra += TWO_PI;
   return {ra, dec};
 }
+
+HorizontalCoordinates AstroCalculator::EquatorialToHorizontal(float ra,
+                                                              float dec) {
+  float ha = lst_ - ra;
+  float sin_dec = sin(dec);
+  float cos_dec = cos(dec);
+  float sin_altitude =
+      sin_latitude_ * sin_dec + cos_latitude_ * cos_dec * cos(ha);
+  float cos_azimuth = (sin_dec - sin_latitude_ * sin_altitude) /
+                      (cos_latitude_ * sqrt(1 - sin_altitude * sin_altitude));
+  float altitude = asin(sin_altitude);
+  float azimuth = acos(cos_azimuth);
+  if (ha < PI) azimuth = TWO_PI - azimuth;
+  return {azimuth, altitude};
+}
