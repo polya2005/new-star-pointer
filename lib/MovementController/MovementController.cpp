@@ -12,11 +12,9 @@ int32_t MovementController::AltitudeToSteps(float altitude) {
   return static_cast<int32_t>(altitude * steps_per_radian_al_);
 }
 
-MovementController* MovementController::GetInstance() {
-  if (instance_ == nullptr) {
-    instance_ = new MovementController();
-  }
-  return instance_;
+MovementController& MovementController::GetInstance() {
+  static MovementController instance;
+  return instance;
 }
 
 void MovementController::AttachAzimuthMotor(uint8_t step_pin, uint8_t dir_pin,
