@@ -3,21 +3,113 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_astro_calculator_a59257767fe2392c22ed302bef3c73793}\label{class_astro_calculator_a59257767fe2392c22ed302bef3c73793} 
-void {\bfseries Set\+Observer\+Location} (float latitude, float longitude)
-\item 
-\Hypertarget{class_astro_calculator_ac7201caf5ae80421aec60b2d6ef50f13}\label{class_astro_calculator_ac7201caf5ae80421aec60b2d6ef50f13} 
-\mbox{\hyperlink{struct_equatorial_coordinates}{Equatorial\+Coordinates}} {\bfseries Horizontal\+To\+Equatorial} (float azimuth, float altitude)
-\item 
-\Hypertarget{class_astro_calculator_af4bd52fa686d0921a64992d86bf36888}\label{class_astro_calculator_af4bd52fa686d0921a64992d86bf36888} 
-\mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} {\bfseries Equatorial\+To\+Horizontal} (float ra, float dec)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_astro_calculator_a89e79c1cd3d1df860d9d3a8845e32cae}{Set\+Observer\+Location}} (double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em Set the observer location. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_equatorial_coordinates}{Equatorial\+Coordinates}} \mbox{\hyperlink{class_astro_calculator_a7bff1f48bdbc51f7054402befffa1b22}{Horizontal\+To\+Equatorial}} (double azimuth, double altitude)
+\begin{DoxyCompactList}\small\item\em Converts the given horizontal coordinates into equatorial coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} \mbox{\hyperlink{class_astro_calculator_a19339760a33a2ce135df3d6ff4a6e4e7}{Equatorial\+To\+Horizontal}} (double ra, double dec)
+\begin{DoxyCompactList}\small\item\em Converts the given equatorial coordinates into horizontal coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst}} (double jd)
+\begin{DoxyCompactList}\small\item\em Update the local sidereal time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_astro_calculator_a020f633bf24389c153b031cc400baf5f}\label{class_astro_calculator_a020f633bf24389c153b031cc400baf5f} 
-static \mbox{\hyperlink{class_astro_calculator}{Astro\+Calculator}} \& {\bfseries Get\+Instance} ()
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{class_astro_calculator}{Astro\+Calculator}} \& \mbox{\hyperlink{class_astro_calculator_a020f633bf24389c153b031cc400baf5f}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_astro_calculator_a19339760a33a2ce135df3d6ff4a6e4e7}\index{AstroCalculator@{AstroCalculator}!EquatorialToHorizontal@{EquatorialToHorizontal}}
+\index{EquatorialToHorizontal@{EquatorialToHorizontal}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{EquatorialToHorizontal()}{EquatorialToHorizontal()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a19339760a33a2ce135df3d6ff4a6e4e7} 
+\mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} Astro\+Calculator\+::\+Equatorial\+To\+Horizontal (\begin{DoxyParamCaption}\item[{double}]{ra}{, }\item[{double}]{dec}{}\end{DoxyParamCaption})}
+
+
+
+Converts the given equatorial coordinates into horizontal coordinates. 
+
+Converts the given equatorial coordinates into horizontal coordinates. The results will change over time as the Earth rotates. Therefore, the \doxylink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst()} function should be called before calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ra} & The right ascension angle in radians. \\
+\hline
+{\em dec} & The declination angle in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} 
+\end{DoxyReturn}
+\Hypertarget{class_astro_calculator_a020f633bf24389c153b031cc400baf5f}\index{AstroCalculator@{AstroCalculator}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a020f633bf24389c153b031cc400baf5f} 
+\mbox{\hyperlink{class_astro_calculator}{Astro\+Calculator}} \& Astro\+Calculator\+::\+Get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_astro_calculator}{Astro\+Calculator}\& The singleton instance. 
+\end{DoxyReturn}
+\Hypertarget{class_astro_calculator_a7bff1f48bdbc51f7054402befffa1b22}\index{AstroCalculator@{AstroCalculator}!HorizontalToEquatorial@{HorizontalToEquatorial}}
+\index{HorizontalToEquatorial@{HorizontalToEquatorial}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{HorizontalToEquatorial()}{HorizontalToEquatorial()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a7bff1f48bdbc51f7054402befffa1b22} 
+\mbox{\hyperlink{struct_equatorial_coordinates}{Equatorial\+Coordinates}} Astro\+Calculator\+::\+Horizontal\+To\+Equatorial (\begin{DoxyParamCaption}\item[{double}]{azimuth}{, }\item[{double}]{altitude}{}\end{DoxyParamCaption})}
+
+
+
+Converts the given horizontal coordinates into equatorial coordinates. 
+
+Converts the given horizontal coordinates into equatorial coordinates. The results will change over time as the Earth rotates. Therefore, the \doxylink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst()} function should be called before calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em azimuth} & The azimuth angle in radians. \\
+\hline
+{\em altitude} & The altitude angle in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_equatorial_coordinates}{Equatorial\+Coordinates} 
+\end{DoxyReturn}
+\Hypertarget{class_astro_calculator_a89e79c1cd3d1df860d9d3a8845e32cae}\index{AstroCalculator@{AstroCalculator}!SetObserverLocation@{SetObserverLocation}}
+\index{SetObserverLocation@{SetObserverLocation}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{SetObserverLocation()}{SetObserverLocation()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a89e79c1cd3d1df860d9d3a8845e32cae} 
+void Astro\+Calculator\+::\+Set\+Observer\+Location (\begin{DoxyParamCaption}\item[{double}]{latitude}{, }\item[{double}]{longitude}{}\end{DoxyParamCaption})}
+
+
+
+Set the observer location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & The observer\textquotesingle{}s latitude in radians. \\
+\hline
+{\em longitude} & The observer\textquotesingle{}s longitude in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}\index{AstroCalculator@{AstroCalculator}!UpdateLst@{UpdateLst}}
+\index{UpdateLst@{UpdateLst}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{UpdateLst()}{UpdateLst()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad} 
+void Astro\+Calculator\+::\+Update\+Lst (\begin{DoxyParamCaption}\item[{double}]{jd}{}\end{DoxyParamCaption})}
+
+
+
+Update the local sidereal time. 
+
+Update the local sidereal time based on the given Julian date. The Julian date is the number of days since the beginning of the Julian period, which started on January 1, 4713 BC. The Julian date is used in astronomy to avoid the complexities of the Gregorian calendar.
+
+
+\begin{DoxyParams}{Parameters}
+{\em jd} & The Julian date. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

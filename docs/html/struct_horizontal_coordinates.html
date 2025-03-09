@@ -108,16 +108,58 @@ $(function(){initNavTree('struct_horizontal_coordinates.html',''); initResizable
   <div class="headertitle"><div class="title">HorizontalCoordinates Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The horizontal coordinates of an object in the sky.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_astro_calculator_8h_source.html">AstroCalculator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a48641a8751f60f98d7905f21342ebbbe" id="r_a48641a8751f60f98d7905f21342ebbbe"><td class="memItemLeft" align="right" valign="top"><a id="a48641a8751f60f98d7905f21342ebbbe" name="a48641a8751f60f98d7905f21342ebbbe"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>azimuth</b></td></tr>
-<tr class="separator:a48641a8751f60f98d7905f21342ebbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a018827fab632b9779e7b0a21a4c70d27" id="r_a018827fab632b9779e7b0a21a4c70d27"><td class="memItemLeft" align="right" valign="top"><a id="a018827fab632b9779e7b0a21a4c70d27" name="a018827fab632b9779e7b0a21a4c70d27"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>altitude</b></td></tr>
-<tr class="separator:a018827fab632b9779e7b0a21a4c70d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7769129eb9920dc91692de31f85adc44" id="r_a7769129eb9920dc91692de31f85adc44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7769129eb9920dc91692de31f85adc44">azimuth</a></td></tr>
+<tr class="memdesc:a7769129eb9920dc91692de31f85adc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The azimuth angle in radians.  <br /></td></tr>
+<tr class="separator:a7769129eb9920dc91692de31f85adc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68701ea36fb1106687677985e7539fdc" id="r_a68701ea36fb1106687677985e7539fdc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68701ea36fb1106687677985e7539fdc">altitude</a></td></tr>
+<tr class="memdesc:a68701ea36fb1106687677985e7539fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The altitude angle in radians.  <br /></td></tr>
+<tr class="separator:a68701ea36fb1106687677985e7539fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The horizontal coordinates of an object in the sky. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a68701ea36fb1106687677985e7539fdc" name="a68701ea36fb1106687677985e7539fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68701ea36fb1106687677985e7539fdc">&#9670;&#160;</a></span>altitude</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double HorizontalCoordinates::altitude</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The altitude angle in radians. </p>
+<p>The altitude angle is the angle between the object and the horizon, that is, 0 is the horizon, PI/2 is the zenith, and -PI/2 is the nadir. </p>
+
+</div>
+</div>
+<a id="a7769129eb9920dc91692de31f85adc44" name="a7769129eb9920dc91692de31f85adc44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7769129eb9920dc91692de31f85adc44">&#9670;&#160;</a></span>azimuth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double HorizontalCoordinates::azimuth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The azimuth angle in radians. </p>
+<p>The azimuth angle is the angle between the object and the north direction, measured clockwise, that is, 0 is the north, PI/2 is the east, PI is the south, and 3*PI/2 is the west. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>AstroCalculator/<a class="el" href="_astro_calculator_8h_source.html">AstroCalculator.h</a></li>
 </ul>

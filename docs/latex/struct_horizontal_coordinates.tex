@@ -1,15 +1,48 @@
 \doxysection{Horizontal\+Coordinates Struct Reference}
 \hypertarget{struct_horizontal_coordinates}{}\label{struct_horizontal_coordinates}\index{HorizontalCoordinates@{HorizontalCoordinates}}
+
+
+The horizontal coordinates of an object in the sky.  
+
+
+
+
+{\ttfamily \#include $<$Astro\+Calculator.\+h$>$}
+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_horizontal_coordinates_a48641a8751f60f98d7905f21342ebbbe}\label{struct_horizontal_coordinates_a48641a8751f60f98d7905f21342ebbbe} 
-float {\bfseries azimuth}
-\item 
-\Hypertarget{struct_horizontal_coordinates_a018827fab632b9779e7b0a21a4c70d27}\label{struct_horizontal_coordinates_a018827fab632b9779e7b0a21a4c70d27} 
-float {\bfseries altitude}
-\end{DoxyCompactItemize}
+double \mbox{\hyperlink{struct_horizontal_coordinates_a7769129eb9920dc91692de31f85adc44}{azimuth}}
+\begin{DoxyCompactList}\small\item\em The azimuth angle in radians. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_horizontal_coordinates_a68701ea36fb1106687677985e7539fdc}{altitude}}
+\begin{DoxyCompactList}\small\item\em The altitude angle in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The horizontal coordinates of an object in the sky. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_horizontal_coordinates_a68701ea36fb1106687677985e7539fdc}\index{HorizontalCoordinates@{HorizontalCoordinates}!altitude@{altitude}}
+\index{altitude@{altitude}!HorizontalCoordinates@{HorizontalCoordinates}}
+\doxysubsubsection{\texorpdfstring{altitude}{altitude}}
+{\footnotesize\ttfamily \label{struct_horizontal_coordinates_a68701ea36fb1106687677985e7539fdc} 
+double Horizontal\+Coordinates\+::altitude}
+
+
+
+The altitude angle in radians. 
+
+The altitude angle is the angle between the object and the horizon, that is, 0 is the horizon, PI/2 is the zenith, and -\/PI/2 is the nadir. \Hypertarget{struct_horizontal_coordinates_a7769129eb9920dc91692de31f85adc44}\index{HorizontalCoordinates@{HorizontalCoordinates}!azimuth@{azimuth}}
+\index{azimuth@{azimuth}!HorizontalCoordinates@{HorizontalCoordinates}}
+\doxysubsubsection{\texorpdfstring{azimuth}{azimuth}}
+{\footnotesize\ttfamily \label{struct_horizontal_coordinates_a7769129eb9920dc91692de31f85adc44} 
+double Horizontal\+Coordinates\+::azimuth}
+
+
+
+The azimuth angle in radians. 
+
+The azimuth angle is the angle between the object and the north direction, measured clockwise, that is, 0 is the north, PI/2 is the east, PI is the south, and 3\texorpdfstring{$\ast$}{*}\+PI/2 is the west. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

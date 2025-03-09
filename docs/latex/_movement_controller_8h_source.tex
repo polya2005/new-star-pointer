@@ -15,13 +15,13 @@
 \DoxyCodeLine{00023\ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00027\ \ \ AccelStepper*\ al\_;}
 \DoxyCodeLine{00031\ \ \ AccelStepper*\ az\_;}
-\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{float}\ steps\_per\_radian\_az\_;}
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{float}\ steps\_per\_radian\_al\_;}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{double}\ steps\_per\_radian\_az\_;}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{double}\ steps\_per\_radian\_al\_;}
 \DoxyCodeLine{00043\ \ \ int16\_t\ jog\_steps\_az\_;}
 \DoxyCodeLine{00047\ \ \ int16\_t\ jog\_steps\_al\_;}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00055\ \ \ int32\_t\ AzimuthToSteps(\textcolor{keywordtype}{float}\ azimuth);}
-\DoxyCodeLine{00062\ \ \ int32\_t\ AltitudeToSteps(\textcolor{keywordtype}{float}\ altitude);}
+\DoxyCodeLine{00055\ \ \ int32\_t\ AzimuthToSteps(\textcolor{keywordtype}{double}\ azimuth);}
+\DoxyCodeLine{00062\ \ \ int32\_t\ AltitudeToSteps(\textcolor{keywordtype}{double}\ altitude);}
 \DoxyCodeLine{00063\ }
 \DoxyCodeLine{00064\ \ \ MovementController()\ \{\}}
 \DoxyCodeLine{00065\ \ \ MovementController(\textcolor{keyword}{const}\ MovementController\&\ other)\ =\ \textcolor{keyword}{delete};}
@@ -30,20 +30,20 @@
 \DoxyCodeLine{00068\ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00074\ \ \ \textcolor{keyword}{static}\ MovementController\&\ \mbox{\hyperlink{class_movement_controller_aa7b869138bc30e5f1509bf7bcd38b1d9}{GetInstance}}();}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_a3e29dda30696b29245eb821f5569a13b}{AttachAzimuthMotor}}(uint8\_t\ step\_pin,\ uint8\_t\ dir\_pin,}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ steps\_per\_radian);}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_aa7bbacff63f2b4aa150d31f1223334ac}{AttachAzimuthMotor}}(uint8\_t\ step\_pin,\ uint8\_t\ dir\_pin,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ steps\_per\_radian);}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_aee0efc2239874251ac60184897ce19ce}{AttachAltitudeMotor}}(uint8\_t\ step\_pin,\ uint8\_t\ dir\_pin,}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ steps\_per\_radian);}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_aff6b26162894572edab0d33610a77a59}{AttachAltitudeMotor}}(uint8\_t\ step\_pin,\ uint8\_t\ dir\_pin,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ steps\_per\_radian);}
 \DoxyCodeLine{00101\ }
 \DoxyCodeLine{00102\ \ \ \textcolor{comment}{//\ Moves\ to\ the\ specified\ azimuth\ and\ altitude,\ both\ in\ radians,\ if\ the}}
 \DoxyCodeLine{00103\ \ \ \textcolor{comment}{//\ altitude\ is\ between\ 0\ and\ PI/2\ and\ returns\ true.\ If\ the\ altitude\ is}}
 \DoxyCodeLine{00104\ \ \ \textcolor{comment}{//\ outside\ the\ range,\ returns\ false.}}
-\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_movement_controller_ac7ac8342945f632ffac6b54d4505d204}{MoveTo}}(\textcolor{keywordtype}{float}\ azimuth,\ \textcolor{keywordtype}{float}\ altitude);}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_movement_controller_aadad235ae0cf94cd0072cad989b62b9a}{MoveTo}}(\textcolor{keywordtype}{double}\ azimuth,\ \textcolor{keywordtype}{double}\ altitude);}
 \DoxyCodeLine{00116\ }
-\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_a58a4b8d973f706b4cc6414fc90601ea8}{SetCurrentPosition}}(\textcolor{keywordtype}{float}\ azimuth,\ \textcolor{keywordtype}{float}\ altitude);}
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_ae8512ccea34cf77aaf2a8442e9e95751}{SetCurrentPosition}}(\textcolor{keywordtype}{double}\ azimuth,\ \textcolor{keywordtype}{double}\ altitude);}
 \DoxyCodeLine{00127\ }
-\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_aa10859753431111c32643970c5eedc1b}{SetJogStepAngle}}(\textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_a10c95de1a1b6e43cbc33a9244274bb27}{SetJogStepAngle}}(\textcolor{keywordtype}{double}\ angle);}
 \DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_a481dd74ccb749400b812eee54eb51dd3}{JogEast}}();}
 \DoxyCodeLine{00141\ }
 \DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movement_controller_aa7328ee5f2d6578b62b214c3b3ea1d2a}{JogWest}}();}

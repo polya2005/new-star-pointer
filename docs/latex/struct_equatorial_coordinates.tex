@@ -1,15 +1,48 @@
 \doxysection{Equatorial\+Coordinates Struct Reference}
 \hypertarget{struct_equatorial_coordinates}{}\label{struct_equatorial_coordinates}\index{EquatorialCoordinates@{EquatorialCoordinates}}
+
+
+The equatorial coordinates of an object in the sky.  
+
+
+
+
+{\ttfamily \#include $<$Astro\+Calculator.\+h$>$}
+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_equatorial_coordinates_a0ca262ac3eb9c31683d039174216cf2c}\label{struct_equatorial_coordinates_a0ca262ac3eb9c31683d039174216cf2c} 
-float {\bfseries ra}
-\item 
-\Hypertarget{struct_equatorial_coordinates_a553028626bd9c60cacdef34bdf98bfa3}\label{struct_equatorial_coordinates_a553028626bd9c60cacdef34bdf98bfa3} 
-float {\bfseries dec}
-\end{DoxyCompactItemize}
+double \mbox{\hyperlink{struct_equatorial_coordinates_a4aacc7079a73866cf46fad5753176dcf}{ra}}
+\begin{DoxyCompactList}\small\item\em The right ascension angle in radians. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_equatorial_coordinates_a5913d2bad6da80ad6064ad62764764d7}{dec}}
+\begin{DoxyCompactList}\small\item\em The declination angle in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The equatorial coordinates of an object in the sky. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_equatorial_coordinates_a5913d2bad6da80ad6064ad62764764d7}\index{EquatorialCoordinates@{EquatorialCoordinates}!dec@{dec}}
+\index{dec@{dec}!EquatorialCoordinates@{EquatorialCoordinates}}
+\doxysubsubsection{\texorpdfstring{dec}{dec}}
+{\footnotesize\ttfamily \label{struct_equatorial_coordinates_a5913d2bad6da80ad6064ad62764764d7} 
+double Equatorial\+Coordinates\+::dec}
+
+
+
+The declination angle in radians. 
+
+The declination angle is the angle between the object and the celestial equator, measured northward, that is, 0 is the celestial equator, PI/2 is the north celestial pole, and -\/PI/2 is the south celestial pole. \Hypertarget{struct_equatorial_coordinates_a4aacc7079a73866cf46fad5753176dcf}\index{EquatorialCoordinates@{EquatorialCoordinates}!ra@{ra}}
+\index{ra@{ra}!EquatorialCoordinates@{EquatorialCoordinates}}
+\doxysubsubsection{\texorpdfstring{ra}{ra}}
+{\footnotesize\ttfamily \label{struct_equatorial_coordinates_a4aacc7079a73866cf46fad5753176dcf} 
+double Equatorial\+Coordinates\+::ra}
+
+
+
+The right ascension angle in radians. 
+
+The right ascension angle is the angle between the object and the vernal equinox, measured eastward. It is more commonly expressed in hours, minutes, and seconds, but here we use radians. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
