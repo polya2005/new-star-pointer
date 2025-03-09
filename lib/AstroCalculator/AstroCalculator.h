@@ -92,14 +92,14 @@ class AstroCalculator {
 
  public:
   /**
-   * @brief Get the singleton instance of the AstroCalculator class.
+   * @brief Gets the singleton instance of the AstroCalculator class.
    *
    * @return AstroCalculator& The singleton instance.
    */
   static AstroCalculator& GetInstance();
 
   /**
-   * @brief Set the observer location
+   * @brief Sets the observer location
    *
    * @param latitude The observer's latitude in radians.
    * @param longitude The observer's longitude in radians.
@@ -135,9 +135,9 @@ class AstroCalculator {
   HorizontalCoordinates EquatorialToHorizontal(double ra, double dec);
 
   /**
-   * @brief Update the local sidereal time.
+   * @brief Updates the local sidereal time.
    *
-   * Update the local sidereal time based on the given Julian date. The Julian
+   * Updates the local sidereal time based on the given Julian date. The Julian
    * date is the number of days since the beginning of the Julian period, which
    * started on January 1, 4713 BC. The Julian date is used in astronomy to
    * avoid the complexities of the Gregorian calendar.

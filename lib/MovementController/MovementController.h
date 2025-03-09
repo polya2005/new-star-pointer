@@ -67,7 +67,7 @@ class MovementController {
 
  public:
   /**
-   * @brief Get the instance of the MovementController class.
+   * @brief Gets the instance of the MovementController class.
    *
    * @return MovementController& The instance of the MovementController class.
    */
