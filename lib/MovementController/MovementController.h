@@ -32,11 +32,11 @@ class MovementController {
   /**
    * The number of steps per radian east.
    */
-  float steps_per_radian_az_;
+  double steps_per_radian_az_;
   /**
    * The number of steps per radian up.
    */
-  float steps_per_radian_al_;
+  double steps_per_radian_al_;
   /**
    * The number of steps to jog east.
    */
@@ -52,14 +52,14 @@ class MovementController {
    * @param azimuth The azimuth angle in radians.
    * @return int32_t The number of steps.
    */
-  int32_t AzimuthToSteps(float azimuth);
+  int32_t AzimuthToSteps(double azimuth);
   /**
    * Converts the altitude angle in radians to the number of steps.
    *
    * @param altitude The altitude angle in radians.
    * @return int32_t The number of steps.
    */
-  int32_t AltitudeToSteps(float altitude);
+  int32_t AltitudeToSteps(double altitude);
 
   MovementController() {}
   MovementController(const MovementController& other) = delete;
@@ -73,67 +73,67 @@ class MovementController {
    */
   static MovementController& GetInstance();
 
-  /** 
+  /**
    * @brief Attaches the azimuth motor to the controller.
-   * 
+   *
    * Specifies the step pin, dir pin, and the number of steps per radian east.
    * A negative step number reverses the direction.
-   * 
+   *
    * @param step_pin The step pin.
    * @param dir_pin The dir pin.
    * @param steps_per_radian The number of steps per radian east.
    */
   void AttachAzimuthMotor(uint8_t step_pin, uint8_t dir_pin,
-                          float steps_per_radian);
+                          double steps_per_radian);
 
   /**
    * @brief Attaches the altitude motor to the controller.
-   * 
+   *
    * Specifies the step pin, dir pin, and the number of steps per radian up.
    * A negative step number reverses the direction.
-   * 
+   *
    * @param step_pin The step pin.
    * @param dir_pin The dir pin.
    * @param steps_per_radian The number of steps per radian up.
    */
   void AttachAltitudeMotor(uint8_t step_pin, uint8_t dir_pin,
-                           float steps_per_radian);
+                           double steps_per_radian);
 
   // Moves to the specified azimuth and altitude, both in radians, if the
   // altitude is between 0 and PI/2 and returns true. If the altitude is
   // outside the range, returns false.
   /**
    * @brief Moves the pointer to the specified azimuth and altitude.
-   * 
+   *
    * Moves the pointer to the specified azimuth and altitude, both in radians.
-   * 
+   *
    * @param azimuth The azimuth in radians.
    * @param altitude The altitude in radians.
    * @return true if the altitude is between 0 and PI/2.
    * @return false otherwise.
    */
-  bool MoveTo(float azimuth, float altitude);
+  bool MoveTo(double azimuth, double altitude);
 
   /**
    * @brief Marks the current position as the specified azimuth and altitude.
-   * 
+   *
    * Marks the current position as the specified azimuth and altitude, both in
    * radians.
-   * 
+   *
    * @param azimuth The current azimuth in radians.
    * @param altitude The current altitude in radians.
    */
-  void SetCurrentPosition(float azimuth, float altitude);
+  void SetCurrentPosition(double azimuth, double altitude);
 
   /**
    * @brief Sets the angle to move the motor in one jogging step.
-   * 
+   *
    * Specifies the approximate angle to move the motor in one jogging step in
    * radians.
-   * 
+   *
    * @param angle The angle in radians.
    */
-  void SetJogStepAngle(float angle);
+  void SetJogStepAngle(double angle);
   /**
    * @brief Jogs to east once.
    */
@@ -156,9 +156,9 @@ class MovementController {
 
   /**
    * @brief Executes the movements.
-   * 
+   *
    * Executes the movements. Must be called repeatedly to move the pointer.
-   * 
+   *
    * @return true if the motion is in progress.
    * @return false otherwise.
    */

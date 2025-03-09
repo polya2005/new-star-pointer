@@ -11,40 +11,40 @@ AstroCalculator& AstroCalculator::GetInstance() {
   return instance;
 }
 
-void AstroCalculator::SetObserverLocation(float latitude, float longitude) {
+void AstroCalculator::SetObserverLocation(double latitude, double longitude) {
   sin_latitude_ = sin(latitude);
   cos_latitude_ = cos(latitude);
   longitude_ = longitude;
 }
 
-EquatorialCoordinates AstroCalculator::HorizontalToEquatorial(float azimuth,
-                                                              float altitude) {
-  float cos_altitude = cos(altitude);
-  float sin_altitude = sin(altitude);
-  float cos_azimuth = cos(azimuth);
-  float sin_dec =
+EquatorialCoordinates AstroCalculator::HorizontalToEquatorial(double azimuth,
+                                                              double altitude) {
+  double cos_altitude = cos(altitude);
+  double sin_altitude = sin(altitude);
+  double cos_azimuth = cos(azimuth);
+  double sin_dec =
       sin_latitude_ * sin_altitude + cos_latitude_ * cos_altitude * cos_azimuth;
-  float cos_ha = (sin_altitude - sin_latitude_ * sin_dec) /
-                 (cos_latitude_ * sqrt(1 - sin_dec * sin_dec));
-  float dec = asin(sin_dec);
-  float ha = acos(cos_ha);
+  double cos_ha = (sin_altitude - sin_latitude_ * sin_dec) /
+                  (cos_latitude_ * sqrt(1 - sin_dec * sin_dec));
+  double dec = asin(sin_dec);
+  double ha = acos(cos_ha);
   if (azimuth < PI) ha = TWO_PI - ha;
-  float ra = lst_ - ha;
+  double ra = lst_ - ha;
   if (ra < 0) ra += TWO_PI;
   return {ra, dec};
 }
 
-HorizontalCoordinates AstroCalculator::EquatorialToHorizontal(float ra,
-                                                              float dec) {
-  float ha = lst_ - ra;
-  float sin_dec = sin(dec);
-  float cos_dec = cos(dec);
-  float sin_altitude =
+HorizontalCoordinates AstroCalculator::EquatorialToHorizontal(double ra,
+                                                              double dec) {
+  double ha = lst_ - ra;
+  double sin_dec = sin(dec);
+  double cos_dec = cos(dec);
+  double sin_altitude =
       sin_latitude_ * sin_dec + cos_latitude_ * cos_dec * cos(ha);
-  float cos_azimuth = (sin_dec - sin_latitude_ * sin_altitude) /
-                      (cos_latitude_ * sqrt(1 - sin_altitude * sin_altitude));
-  float altitude = asin(sin_altitude);
-  float azimuth = acos(cos_azimuth);
+  double cos_azimuth = (sin_dec - sin_latitude_ * sin_altitude) /
+                       (cos_latitude_ * sqrt(1 - sin_altitude * sin_altitude));
+  double altitude = asin(sin_altitude);
+  double azimuth = acos(cos_azimuth);
   if (ha < PI) azimuth = TWO_PI - azimuth;
   return {azimuth, altitude};
 }

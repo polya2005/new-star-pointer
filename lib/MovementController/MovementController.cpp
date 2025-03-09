@@ -4,11 +4,11 @@
 
 #include "MovementController.h"
 
-int32_t MovementController::AzimuthToSteps(float azimuth) {
+int32_t MovementController::AzimuthToSteps(double azimuth) {
   return static_cast<int32_t>(azimuth * steps_per_radian_az_);
 }
 
-int32_t MovementController::AltitudeToSteps(float altitude) {
+int32_t MovementController::AltitudeToSteps(double altitude) {
   return static_cast<int32_t>(altitude * steps_per_radian_al_);
 }
 
@@ -18,18 +18,18 @@ MovementController& MovementController::GetInstance() {
 }
 
 void MovementController::AttachAzimuthMotor(uint8_t step_pin, uint8_t dir_pin,
-                                            float steps_per_radian) {
+                                            double steps_per_radian) {
   az_ = new AccelStepper(AccelStepper::DRIVER, step_pin, dir_pin);
   steps_per_radian_az_ = steps_per_radian;
 }
 
 void MovementController::AttachAltitudeMotor(uint8_t step_pin, uint8_t dir_pin,
-                                             float steps_per_radian) {
+                                             double steps_per_radian) {
   al_ = new AccelStepper(AccelStepper::DRIVER, step_pin, dir_pin);
   steps_per_radian_al_ = steps_per_radian;
 }
 
-bool MovementController::MoveTo(float azimuth, float altitude) {
+bool MovementController::MoveTo(double azimuth, double altitude) {
   if (altitude >= 0 && altitude <= HALF_PI) {
     az_->moveTo(AzimuthToSteps(azimuth));
     al_->moveTo(AltitudeToSteps(altitude));
@@ -38,12 +38,12 @@ bool MovementController::MoveTo(float azimuth, float altitude) {
   return false;
 }
 
-void MovementController::SetCurrentPosition(float azimuth, float altitude) {
+void MovementController::SetCurrentPosition(double azimuth, double altitude) {
   az_->setCurrentPosition(AzimuthToSteps(azimuth));
   al_->setCurrentPosition(AltitudeToSteps(altitude));
 }
 
-void MovementController::SetJogStepAngle(float angle) {
+void MovementController::SetJogStepAngle(double angle) {
   jog_steps_az_ = AzimuthToSteps(angle);
   jog_steps_al_ = AltitudeToSteps(angle);
 }
