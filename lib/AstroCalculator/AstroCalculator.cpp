@@ -48,3 +48,10 @@ HorizontalCoordinates AstroCalculator::EquatorialToHorizontal(double ra,
   if (ha < PI) azimuth = TWO_PI - azimuth;
   return {azimuth, altitude};
 }
+
+void AstroCalculator::UpdateLst(double jd) {
+  double t = (jd - 2451545.0) / 36525.0;
+  double gmst = 4.8949612127358 + 6.30038809898494 * (jd - 2451545.0) +
+               6.770708127e-6 * t * t - t * t * t / 2217919625.0;
+  lst_ = fmod(gmst + longitude_, TWO_PI);
+}
