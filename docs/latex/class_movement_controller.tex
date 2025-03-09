@@ -1,0 +1,194 @@
+\doxysection{Movement\+Controller Class Reference}
+\hypertarget{class_movement_controller}{}\label{class_movement_controller}\index{MovementController@{MovementController}}
+
+
+A class that controls the movement of the pointer.  
+
+
+
+
+{\ttfamily \#include $<$Movement\+Controller.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_movement_controller_a3e29dda30696b29245eb821f5569a13b}{Attach\+Azimuth\+Motor}} (uint8\+\_\+t step\+\_\+pin, uint8\+\_\+t dir\+\_\+pin, float steps\+\_\+per\+\_\+radian)
+\begin{DoxyCompactList}\small\item\em Attaches the azimuth motor to the controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_movement_controller_aee0efc2239874251ac60184897ce19ce}{Attach\+Altitude\+Motor}} (uint8\+\_\+t step\+\_\+pin, uint8\+\_\+t dir\+\_\+pin, float steps\+\_\+per\+\_\+radian)
+\begin{DoxyCompactList}\small\item\em Attaches the altitude motor to the controller. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_movement_controller_ac7ac8342945f632ffac6b54d4505d204}{Move\+To}} (float azimuth, float altitude)
+\begin{DoxyCompactList}\small\item\em Moves the pointer to the specified azimuth and altitude. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_movement_controller_a58a4b8d973f706b4cc6414fc90601ea8}{Set\+Current\+Position}} (float azimuth, float altitude)
+\begin{DoxyCompactList}\small\item\em Marks the current position as the specified azimuth and altitude. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_movement_controller_aa10859753431111c32643970c5eedc1b}{Set\+Jog\+Step\+Angle}} (float angle)
+\begin{DoxyCompactList}\small\item\em Sets the angle to move the motor in one jogging step. \end{DoxyCompactList}\item 
+\Hypertarget{class_movement_controller_a481dd74ccb749400b812eee54eb51dd3}\label{class_movement_controller_a481dd74ccb749400b812eee54eb51dd3} 
+void {\bfseries Jog\+East} ()
+\begin{DoxyCompactList}\small\item\em Jogs to east once. \end{DoxyCompactList}\item 
+\Hypertarget{class_movement_controller_aa7328ee5f2d6578b62b214c3b3ea1d2a}\label{class_movement_controller_aa7328ee5f2d6578b62b214c3b3ea1d2a} 
+void {\bfseries Jog\+West} ()
+\begin{DoxyCompactList}\small\item\em Jogs to west once. \end{DoxyCompactList}\item 
+\Hypertarget{class_movement_controller_a72b14a9ee84907e65fdc8e31f8b98293}\label{class_movement_controller_a72b14a9ee84907e65fdc8e31f8b98293} 
+void {\bfseries Jog\+Up} ()
+\begin{DoxyCompactList}\small\item\em Jogs up once if the pointer is not past the zenith. \end{DoxyCompactList}\item 
+\Hypertarget{class_movement_controller_a4559923a116e814743987cc3caf5a6b4}\label{class_movement_controller_a4559923a116e814743987cc3caf5a6b4} 
+void {\bfseries Jog\+Down} ()
+\begin{DoxyCompactList}\small\item\em Jogs down once if the pointer is above the horizon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_movement_controller_a08aa6d1ee74b03cf4365cd1a2e7df907}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Executes the movements. \end{DoxyCompactList}\item 
+\Hypertarget{class_movement_controller_a19619b0ababc86230c0df3132c1e7ae9}\label{class_movement_controller_a19619b0ababc86230c0df3132c1e7ae9} 
+void {\bfseries Stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the movements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_movement_controller}{Movement\+Controller}} \& \mbox{\hyperlink{class_movement_controller_aa7b869138bc30e5f1509bf7bcd38b1d9}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get the instance of the \doxylink{class_movement_controller}{Movement\+Controller} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that controls the movement of the pointer. 
+
+The class controls the movement of the pointer by controlling the azimuth and altitude motors. The angles are specified in radians and are measured with respect to the device\textquotesingle{}s, as opposed to the observer\textquotesingle{}s, north and zenith. The azimuth angle is measured eastward from the north, and the altitude angle is measured up from the horizon.
+
+The class is a singleton class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_movement_controller_aee0efc2239874251ac60184897ce19ce}\index{MovementController@{MovementController}!AttachAltitudeMotor@{AttachAltitudeMotor}}
+\index{AttachAltitudeMotor@{AttachAltitudeMotor}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{AttachAltitudeMotor()}{AttachAltitudeMotor()}}
+{\footnotesize\ttfamily \label{class_movement_controller_aee0efc2239874251ac60184897ce19ce} 
+void Movement\+Controller\+::\+Attach\+Altitude\+Motor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{step\+\_\+pin}{, }\item[{uint8\+\_\+t}]{dir\+\_\+pin}{, }\item[{float}]{steps\+\_\+per\+\_\+radian}{}\end{DoxyParamCaption})}
+
+
+
+Attaches the altitude motor to the controller. 
+
+Specifies the step pin, dir pin, and the number of steps per radian up. A negative step number reverses the direction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+pin} & The step pin. \\
+\hline
+{\em dir\+\_\+pin} & The dir pin. \\
+\hline
+{\em steps\+\_\+per\+\_\+radian} & The number of steps per radian up. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_movement_controller_a3e29dda30696b29245eb821f5569a13b}\index{MovementController@{MovementController}!AttachAzimuthMotor@{AttachAzimuthMotor}}
+\index{AttachAzimuthMotor@{AttachAzimuthMotor}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{AttachAzimuthMotor()}{AttachAzimuthMotor()}}
+{\footnotesize\ttfamily \label{class_movement_controller_a3e29dda30696b29245eb821f5569a13b} 
+void Movement\+Controller\+::\+Attach\+Azimuth\+Motor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{step\+\_\+pin}{, }\item[{uint8\+\_\+t}]{dir\+\_\+pin}{, }\item[{float}]{steps\+\_\+per\+\_\+radian}{}\end{DoxyParamCaption})}
+
+
+
+Attaches the azimuth motor to the controller. 
+
+Specifies the step pin, dir pin, and the number of steps per radian east. A negative step number reverses the direction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+pin} & The step pin. \\
+\hline
+{\em dir\+\_\+pin} & The dir pin. \\
+\hline
+{\em steps\+\_\+per\+\_\+radian} & The number of steps per radian east. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_movement_controller_aa7b869138bc30e5f1509bf7bcd38b1d9}\index{MovementController@{MovementController}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \label{class_movement_controller_aa7b869138bc30e5f1509bf7bcd38b1d9} 
+\mbox{\hyperlink{class_movement_controller}{Movement\+Controller}} \& Movement\+Controller\+::\+Get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the instance of the \doxylink{class_movement_controller}{Movement\+Controller} class. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_movement_controller}{Movement\+Controller}\& The instance of the \doxylink{class_movement_controller}{Movement\+Controller} class. 
+\end{DoxyReturn}
+\Hypertarget{class_movement_controller_ac7ac8342945f632ffac6b54d4505d204}\index{MovementController@{MovementController}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily \label{class_movement_controller_ac7ac8342945f632ffac6b54d4505d204} 
+bool Movement\+Controller\+::\+Move\+To (\begin{DoxyParamCaption}\item[{float}]{azimuth}{, }\item[{float}]{altitude}{}\end{DoxyParamCaption})}
+
+
+
+Moves the pointer to the specified azimuth and altitude. 
+
+Moves the pointer to the specified azimuth and altitude, both in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em azimuth} & The azimuth in radians. \\
+\hline
+{\em altitude} & The altitude in radians. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the altitude is between 0 and PI/2. 
+
+false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_movement_controller_a08aa6d1ee74b03cf4365cd1a2e7df907}\index{MovementController@{MovementController}!Run@{Run}}
+\index{Run@{Run}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{class_movement_controller_a08aa6d1ee74b03cf4365cd1a2e7df907} 
+bool Movement\+Controller\+::\+Run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executes the movements. 
+
+Executes the movements. Must be called repeatedly to move the pointer.
+
+\begin{DoxyReturn}{Returns}
+true if the motion is in progress. 
+
+false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_movement_controller_a58a4b8d973f706b4cc6414fc90601ea8}\index{MovementController@{MovementController}!SetCurrentPosition@{SetCurrentPosition}}
+\index{SetCurrentPosition@{SetCurrentPosition}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{SetCurrentPosition()}{SetCurrentPosition()}}
+{\footnotesize\ttfamily \label{class_movement_controller_a58a4b8d973f706b4cc6414fc90601ea8} 
+void Movement\+Controller\+::\+Set\+Current\+Position (\begin{DoxyParamCaption}\item[{float}]{azimuth}{, }\item[{float}]{altitude}{}\end{DoxyParamCaption})}
+
+
+
+Marks the current position as the specified azimuth and altitude. 
+
+Marks the current position as the specified azimuth and altitude, both in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em azimuth} & The current azimuth in radians. \\
+\hline
+{\em altitude} & The current altitude in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_movement_controller_aa10859753431111c32643970c5eedc1b}\index{MovementController@{MovementController}!SetJogStepAngle@{SetJogStepAngle}}
+\index{SetJogStepAngle@{SetJogStepAngle}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{SetJogStepAngle()}{SetJogStepAngle()}}
+{\footnotesize\ttfamily \label{class_movement_controller_aa10859753431111c32643970c5eedc1b} 
+void Movement\+Controller\+::\+Set\+Jog\+Step\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle}{}\end{DoxyParamCaption})}
+
+
+
+Sets the angle to move the motor in one jogging step. 
+
+Specifies the approximate angle to move the motor in one jogging step in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Movement\+Controller/Movement\+Controller.\+h\item 
+Movement\+Controller/Movement\+Controller.\+cpp\end{DoxyCompactItemize}

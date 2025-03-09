@@ -1,0 +1,49 @@
+\doxysection{Astro\+Calculator.\+h}
+\hypertarget{_astro_calculator_8h_source}{}\label{_astro_calculator_8h_source}\index{AstroCalculator/AstroCalculator.h@{AstroCalculator/AstroCalculator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2025\ Boonyakorn\ Thanpanit}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_ASTROCALCULATOR\_ASTROCALCULATOR\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_ASTROCALCULATOR\_ASTROCALCULATOR\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{float}\ azimuth;\ \ \textcolor{comment}{//\ in\ radians}}
+\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{float}\ altitude;\ \ \textcolor{comment}{//\ in\ radians}}
+\DoxyCodeLine{00011\ \}\ \mbox{\hyperlink{struct_horizontal_coordinates}{HorizontalCoordinates}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{float}\ ra;\ \ \textcolor{comment}{//\ in\ radians}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{float}\ dec;\ \ \textcolor{comment}{//\ in\ radians}}
+\DoxyCodeLine{00016\ \}\ \mbox{\hyperlink{struct_equatorial_coordinates}{EquatorialCoordinates}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }AstroCalculator\ \{}
+\DoxyCodeLine{00019\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{float}\ sin\_latitude\_,\ cos\_latitude\_,\ longitude\_;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{float}\ lst\_;\ \ \textcolor{comment}{//\ in\ radians}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ AstroCalculator()\ \{\}}
+\DoxyCodeLine{00024\ \ \ AstroCalculator(\textcolor{keyword}{const}\ AstroCalculator\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ AstroCalculator\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Returns\ the\ instance\ of\ the\ AstroCalculator\ class}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ AstroCalculator\&\ GetInstance();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Sets\ the\ observer\ location\ to\ (latitude,\ longitude)\ radians}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ SetObserverLocation(\textcolor{keywordtype}{float}\ latitude,\ \textcolor{keywordtype}{float}\ longitude);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Converts\ the\ given\ horizontal\ coordinates\ into\ equatorial\ coordinates.}}
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ The\ arguments\ are\ all\ in\ radians.}}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{struct_equatorial_coordinates}{EquatorialCoordinates}}\ HorizontalToEquatorial(\textcolor{keywordtype}{float}\ azimuth,\ \textcolor{keywordtype}{float}\ altitude);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Converts\ the\ given\ equatorial\ coordinates\ into\ horizontal\ coordinates.}}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ The\ arguments\ are\ all\ in\ radians.}}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{struct_horizontal_coordinates}{HorizontalCoordinates}}\ EquatorialToHorizontal(\textcolor{keywordtype}{float}\ ra,\ \textcolor{keywordtype}{float}\ dec);}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_ASTROCALCULATOR\_ASTROCALCULATOR\_H\_}}
+
+\end{DoxyCode}
