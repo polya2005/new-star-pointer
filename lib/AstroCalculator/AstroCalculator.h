@@ -50,6 +50,17 @@ typedef struct {
   double dec;
 } EquatorialCoordinates;
 
+/**
+ * @brief A class that calculates the positions of celestial objects.
+ *
+ * The class calculates the positions of celestial objects based on the
+ * observer's location and the current time. The observer's location is
+ * specified by the latitude and longitude, both in radians. The current time
+ * is specified by the Julian date, which is the number of days since the
+ * beginning of the Julian period, which started on January 1, 4713 BC.
+ *
+ * The class is a singleton class.
+ */
 class AstroCalculator {
  private:
   /**
