@@ -6,6 +6,7 @@
 #define LIB_SENSORS_SENSORS_H_
 
 #include "Adafruit_ADXL345_U.h"
+#include "DFRobot_QMC5883.h"
 #include "Vectors.h"
 
 /**
@@ -18,6 +19,7 @@
 class Sensors {
  private:
   Adafruit_ADXL345_Unified accel;
+  DFRobot_QMC5883 compass;
 
   Sensors() {}
   Sensors(const Sensors&) = delete;
