@@ -4,7 +4,8 @@
 
 #include "AstroCalculator.h"
 
-#include <Arduino.h>
+#include "Arduino.h"
+#include "Datatypes.h"
 
 AstroCalculator& AstroCalculator::GetInstance() {
   static AstroCalculator instance;

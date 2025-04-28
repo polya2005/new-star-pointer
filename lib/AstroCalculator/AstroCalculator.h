@@ -5,50 +5,7 @@
 #ifndef LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
 #define LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
 
-/**
- * @brief The horizontal coordinates of an object in the sky.
- */
-typedef struct {
-  /**
-   * @brief The azimuth angle in radians.
-   *
-   * The azimuth angle is the angle between the object and the north direction,
-   * measured clockwise, that is, 0 is the north, PI/2 is the east, PI is the
-   * south, and 3*PI/2 is the west.
-   */
-  double azimuth;
-
-  /**
-   * @brief The altitude angle in radians.
-   *
-   * The altitude angle is the angle between the object and the horizon, that
-   * is, 0 is the horizon, PI/2 is the zenith, and -PI/2 is the nadir.
-   */
-  double altitude;
-} HorizontalCoordinates;
-
-/**
- * @brief The equatorial coordinates of an object in the sky.
- */
-typedef struct {
-  /**
-   * @brief The right ascension angle in radians.
-   *
-   * The right ascension angle is the angle between the object and the vernal
-   * equinox, measured eastward. It is more commonly expressed in hours,
-   * minutes, and seconds, but here we use radians.
-   */
-  double ra;
-
-  /**
-   * @brief The declination angle in radians.
-   *
-   * The declination angle is the angle between the object and the celestial
-   * equator, measured northward, that is, 0 is the celestial equator, PI/2 is
-   * the north celestial pole, and -PI/2 is the south celestial pole.
-   */
-  double dec;
-} EquatorialCoordinates;
+#include "Datatypes.h"
 
 /**
  * @brief A class that calculates the positions of celestial objects.
