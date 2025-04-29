@@ -1,0 +1,45 @@
+\doxysection{Sensors.\+h}
+\hypertarget{_sensors_8h_source}{}\label{_sensors_8h_source}\index{Sensors/Sensors.h@{Sensors/Sensors.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2025\ Boonyakorn\ Thanpanit}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_SENSORS\_SENSORS\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_SENSORS\_SENSORS\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Adafruit\_ADXL345\_U.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}DFRobot\_QMC5883.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Datatypes.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}TinyGPSPlus.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Vectors.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }Sensors\ \{}
+\DoxyCodeLine{00029\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ Adafruit\_ADXL345\_Unified\ accel;}
+\DoxyCodeLine{00031\ \ \ DFRobot\_QMC5883\ compass;}
+\DoxyCodeLine{00032\ \ \ SerialUART\&\ gpsSerial;}
+\DoxyCodeLine{00033\ \ \ TinyGPSPlus\ gps;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ Sensors()\ :\ gpsSerial(Serial1)\ \{\}}
+\DoxyCodeLine{00036\ \ \ Sensors(\textcolor{keyword}{const}\ Sensors\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ Sensors\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{static}\ Sensors\&\ \mbox{\hyperlink{class_sensors_a9c24288e544a810b0dfe8d1057364898}{GetInstance}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init}}(SerialUART*\ gpsSerial\ =\ \&Serial1);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914}{ReadAcceleration}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734}{ReadMagneticField}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{struct_observer_location}{ObserverLocation}}\ \mbox{\hyperlink{class_sensors_a79f232f755e558e6788b601322127fa8}{ReadObserverLocation}}(uint32\_t\ timeout\ =\ 2000ul);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sensors_a00858f4b35c4b474d4dc872688559623}{ReadJulianDate}}();}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_SENSORS\_SENSORS\_H\_}}
+
+\end{DoxyCode}

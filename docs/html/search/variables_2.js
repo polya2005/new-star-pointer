@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ra_0',['ra',['../struct_equatorial_coordinates.html#a4aacc7079a73866cf46fad5753176dcf',1,'EquatorialCoordinates']]]
+  ['is_5fvalid_0',['is_valid',['../struct_observer_location.html#a3b1f568c039cabfc3b3ba52caa7f85e9',1,'ObserverLocation']]]
 ];

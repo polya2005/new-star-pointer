@@ -1,0 +1,120 @@
+\doxysection{Sensors Class Reference}
+\hypertarget{class_sensors}{}\label{class_sensors}\index{Sensors@{Sensors}}
+
+
+A class that provides access to various sensors.  
+
+
+
+
+{\ttfamily \#include $<$Sensors.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_sensors_a66a7e65d6e041de576028f97b8379594}\label{class_sensors_a66a7e65d6e041de576028f97b8379594} 
+void {\bfseries Init} (Serial\+UART \texorpdfstring{$\ast$}{*}gps\+Serial=\&Serial1)
+\begin{DoxyCompactList}\small\item\em Initializes the sensors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914}{Read\+Acceleration}} ()
+\begin{DoxyCompactList}\small\item\em Reads the acceleration from the accelerometer. Reads the acceleration from the accelerometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734}{Read\+Magnetic\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Reads the magnetic field from the magnetometer. Reads the magnetic field from the magnetometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_observer_location}{Observer\+Location}} \mbox{\hyperlink{class_sensors_a79f232f755e558e6788b601322127fa8}{Read\+Observer\+Location}} (uint32\+\_\+t timeout=2000ul)
+\begin{DoxyCompactList}\small\item\em Reads the observer\textquotesingle{}s location from the GPS. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_sensors_a00858f4b35c4b474d4dc872688559623}{Read\+Julian\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Reads the current Julian date from the GPS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sensors}{Sensors}} \& \mbox{\hyperlink{class_sensors_a9c24288e544a810b0dfe8d1057364898}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \doxylink{class_sensors}{Sensors} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that provides access to various sensors. 
+
+The \doxylink{class_sensors}{Sensors} class provides access to various sensors, such as the accelerometer, magnetometer, and GPS. Think of this class as an abstraction layer that hides the details of the sensors from the rest of the program. The class provides methods to read data from the sensors and to calibrate the sensors.
+
+The implementation assumes that the accelerometer is an ADXL345 and the magnetometer is a QMC5883. Both of those sensors are connected to the I2C bus. The GPS module is assumed to be connected to UART0 but can be customized in \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sensors_a9c24288e544a810b0dfe8d1057364898}\index{Sensors@{Sensors}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Sensors@{Sensors}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \label{class_sensors_a9c24288e544a810b0dfe8d1057364898} 
+\mbox{\hyperlink{class_sensors}{Sensors}} \& Sensors\+::\+Get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of the \doxylink{class_sensors}{Sensors} class. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_sensors}{Sensors}\& The singleton instance. 
+\end{DoxyReturn}
+\Hypertarget{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914}\index{Sensors@{Sensors}!ReadAcceleration@{ReadAcceleration}}
+\index{ReadAcceleration@{ReadAcceleration}!Sensors@{Sensors}}
+\doxysubsubsection{\texorpdfstring{ReadAcceleration()}{ReadAcceleration()}}
+{\footnotesize\ttfamily \label{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} Sensors\+::\+Read\+Acceleration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the acceleration from the accelerometer. Reads the acceleration from the accelerometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_vector3}{Vector3} The acceleration vector. 
+\end{DoxyReturn}
+\Hypertarget{class_sensors_a00858f4b35c4b474d4dc872688559623}\index{Sensors@{Sensors}!ReadJulianDate@{ReadJulianDate}}
+\index{ReadJulianDate@{ReadJulianDate}!Sensors@{Sensors}}
+\doxysubsubsection{\texorpdfstring{ReadJulianDate()}{ReadJulianDate()}}
+{\footnotesize\ttfamily \label{class_sensors_a00858f4b35c4b474d4dc872688559623} 
+double Sensors\+::\+Read\+Julian\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the current Julian date from the GPS. 
+
+Reads the current Julian date from the GPS and returns it as a double.
+
+\begin{DoxyReturn}{Returns}
+double The current Julian date. 
+\end{DoxyReturn}
+\Hypertarget{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734}\index{Sensors@{Sensors}!ReadMagneticField@{ReadMagneticField}}
+\index{ReadMagneticField@{ReadMagneticField}!Sensors@{Sensors}}
+\doxysubsubsection{\texorpdfstring{ReadMagneticField()}{ReadMagneticField()}}
+{\footnotesize\ttfamily \label{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} Sensors\+::\+Read\+Magnetic\+Field (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the magnetic field from the magnetometer. Reads the magnetic field from the magnetometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_vector3}{Vector3} The magnetic field vector. 
+\end{DoxyReturn}
+\Hypertarget{class_sensors_a79f232f755e558e6788b601322127fa8}\index{Sensors@{Sensors}!ReadObserverLocation@{ReadObserverLocation}}
+\index{ReadObserverLocation@{ReadObserverLocation}!Sensors@{Sensors}}
+\doxysubsubsection{\texorpdfstring{ReadObserverLocation()}{ReadObserverLocation()}}
+{\footnotesize\ttfamily \label{class_sensors_a79f232f755e558e6788b601322127fa8} 
+\mbox{\hyperlink{struct_observer_location}{Observer\+Location}} Sensors\+::\+Read\+Observer\+Location (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{timeout}{ = {\ttfamily 2000ul}}\end{DoxyParamCaption})}
+
+
+
+Reads the observer\textquotesingle{}s location from the GPS. 
+
+Reads the observer\textquotesingle{}s location from the GPS and returns it as an \doxylink{struct_observer_location}{Observer\+Location} struct. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The timeout in milliseconds. Default is 2000ms.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_observer_location}{Observer\+Location} The observer\textquotesingle{}s location. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sensors/Sensors.\+h\item 
+Sensors/Sensors.\+cpp\end{DoxyCompactItemize}
