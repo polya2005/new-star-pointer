@@ -1,0 +1,5 @@
+<component>
+    <api>
+        <prop name="text" type="string"/>
+    </api>
+</component>
