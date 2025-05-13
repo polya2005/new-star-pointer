@@ -1,4 +1,9 @@
-.pio
 .vscode
 ._*
 Starpointer_pico.code-workspace
+.pio/build
+.pio/libdeps/pico/*
+!.pio/libdeps/pico/TFT_eSPI
+.pio/libdeps/pico/TFT_eSPI/*
+!.pio/libdeps/pico/lv_conf.h
+!.pio/libdeps/pico/TFT_eSPI/User_Setup_Select.h
