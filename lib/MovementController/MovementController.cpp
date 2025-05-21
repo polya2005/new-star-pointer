@@ -48,9 +48,9 @@ void MovementController::SetJogStepAngle(double angle) {
   jog_steps_al_ = AltitudeToSteps(angle);
 }
 
-void MovementController::JogEast() { az_->move(jog_steps_az_); }
+inline void MovementController::JogEast() { az_->move(jog_steps_az_); }
 
-void MovementController::JogWest() { az_->move(-jog_steps_az_); }
+inline void MovementController::JogWest() { az_->move(-jog_steps_az_); }
 
 void MovementController::JogUp() {
   if (al_->targetPosition() < HALF_PI) {
@@ -64,7 +64,7 @@ void MovementController::JogDown() {
   }
 }
 
-bool MovementController::Run() { return az_->run() || al_->run(); }
+inline bool MovementController::Run() { return az_->run() || al_->run(); }
 
 void MovementController::Stop() {
   az_->stop();
