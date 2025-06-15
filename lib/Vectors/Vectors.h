@@ -35,6 +35,14 @@ class Vector3 {
   Vector3 Cross(const Vector3& v) const;
 
   /**
+   * @brief Computes the dot product of this vector and another vector.
+   *
+   * @param v The other vector.
+   * @return double The dot product of this vector and the other vector.
+   */
+  double Dot(const Vector3& v) const;
+
+  /**
    * @brief Computes the magnitude of the vector.
    *
    * @return double The magnitude of the vector.
