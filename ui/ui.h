@@ -12,10 +12,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-
-/* Include all the UI libraries */
-#include "lvgl/lvgl.h"
-#include "starptr_interface.h"
+#include "ui_gen.h"
 
 /*********************
  *      DEFINES
@@ -34,7 +31,7 @@ extern "C" {
  **********************/
 
 /**
- * Initialize all the custom component libraries (not calling `lv_init()`)
+ * Initialize the component library
  */
 void ui_init(const char * asset_path);
 

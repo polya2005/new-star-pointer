@@ -1,9 +1,0 @@
-<screen>
-    <consts>
-        <string name="title" value="Jog Pointer" />
-    </consts>
-
-    <view>
-        <title text="#title"/>
-    </view>
-</screen>

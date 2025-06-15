@@ -1,9 +1,10 @@
 /**
- * @file jog_screen_gen.h
+ * @file tabview_gen.h
+ *
  */
 
-#ifndef JOG_SCREEN_H
-#define JOG_SCREEN_H
+#ifndef TABVIEW_GEN_H
+#define TABVIEW_GEN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +27,15 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * jog_screen_create(void);
+/**
+ * Create a tabview object
+ * @param parent pointer to an object, it will be the parent of the new tabview
+ * @return pointer to the created tabview
+ */
+lv_obj_t * tabview_create(lv_obj_t * parent);
+
+
+
 
 /**********************
  *      MACROS
@@ -36,4 +45,4 @@ lv_obj_t * jog_screen_create(void);
 } /*extern "C"*/
 #endif
 
-#endif /*JOG_SCREEN_H*/
+#endif /*TABVIEW_GEN_H*/

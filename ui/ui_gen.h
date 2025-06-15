@@ -1,9 +1,9 @@
 /**
- * @file starptr_interface_gen.h
+ * @file ui_gen.h
  */
 
-#ifndef STARPTR_INTERFACE_GEN_H
-#define STARPTR_INTERFACE_GEN_H
+#ifndef UI_GEN_H
+#define UI_GEN_H
 
 #ifndef UI_SUBJECT_STRING_LENGTH
 #define UI_SUBJECT_STRING_LENGTH 256
@@ -20,8 +20,9 @@ extern "C" {
 #include "lvgl/lvgl.h"
 
 /*Include all the widget and components of this library*/
-#include "components/title_gen.h"
-#include "screens/jog_screen_gen.h"
+#include "widgets/jog_interface/jog_interface_gen.h"
+#include "widgets/tabview/tabview_gen.h"
+#include "widgets/tabview_gen.h"
 
 /*********************
  *      DEFINES
@@ -38,23 +39,26 @@ extern "C" {
  * GLOBAL VARIABLES
  **********************/
 
-/* callbacks */
+/* Global Styles */
 
-/*Fonts*/
+/* Fonts */
 
 
-/*Images*/
+/* Images */
 
+/* Subjects */
 
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
 
+/* callbacks */
+
 /**
  * Initialize the component library
  */
 
-void starptr_interface_init_gen(const char * asset_path);
+void ui_init_gen(const char * asset_path);
 
 /**********************
  *      MACROS
@@ -64,4 +68,4 @@ void starptr_interface_init_gen(const char * asset_path);
 } /*extern "C"*/
 #endif
 
-#endif /*STARPTR_INTERFACE_GEN_H*/
+#endif /*UI_GEN_H*/

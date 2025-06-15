@@ -1,10 +1,12 @@
 /**
- * @file ui.c
+ * @file tabview.c
+ *
  */
 
 /*********************
  *      INCLUDES
  *********************/
+#include "tabview_private_gen.h"
 #include "ui.h"
 
 /*********************
@@ -31,11 +33,22 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-void ui_init(const char * asset_path)
+void tabview_constructor_hook(lv_obj_t * obj)
 {
-    LV_LOG_USER("ui_init()\n");
-    starptr_interface_init(asset_path);
+
 }
+
+void tabview_destructor_hook(lv_obj_t * obj)
+{
+
+}
+
+void tabview_event_hook(lv_event_t * e)
+{
+
+}
+
+
 
 /**********************
  *   STATIC FUNCTIONS

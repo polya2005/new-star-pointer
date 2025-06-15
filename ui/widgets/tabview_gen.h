@@ -1,9 +1,10 @@
 /**
- * @file starptr_interface.h
+ * @file tabview_gen.h
+ *
  */
 
-#ifndef STARPTR_INTERFACE_H
-#define STARPTR_INTERFACE_H
+#ifndef TABVIEW_GEN_H
+#define TABVIEW_GEN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,7 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "starptr_interface_gen.h"
+#include "lvgl/lvgl.h"
 
 /*********************
  *      DEFINES
@@ -23,17 +24,18 @@ extern "C" {
  **********************/
 
 /**********************
- * GLOBAL VARIABLES
- **********************/
-
-/**********************
  * GLOBAL PROTOTYPES
  **********************/
 
 /**
- * Initialize the component library
+ * Create a tabview object
+ * @param parent pointer to an object, it will be the parent of the new tabview
+ * @return pointer to the created tabview
  */
-void starptr_interface_init(const char * asset_path);
+lv_obj_t * tabview_create(lv_obj_t * parent);
+
+
+
 
 /**********************
  *      MACROS
@@ -43,4 +45,4 @@ void starptr_interface_init(const char * asset_path);
 } /*extern "C"*/
 #endif
 
-#endif /*STARPTR_INTERFACE_H*/
+#endif /*TABVIEW_GEN_H*/

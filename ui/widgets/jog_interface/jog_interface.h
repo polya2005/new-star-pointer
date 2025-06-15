@@ -1,9 +1,10 @@
 /**
- * @file title_gen.h
+ * @file jog_interface.h
+ *
  */
 
-#ifndef TITLE_H
-#define TITLE_H
+#ifndef JOG_INTERFACE_H
+#define JOG_INTERFACE_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,6 +14,7 @@ extern "C" {
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
+#include "jog_interface_gen.h"
 
 /*********************
  *      DEFINES
@@ -26,7 +28,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * title_create(lv_obj_t * parent, const char * text);
+
 
 /**********************
  *      MACROS
@@ -36,4 +38,4 @@ lv_obj_t * title_create(lv_obj_t * parent, const char * text);
 } /*extern "C"*/
 #endif
 
-#endif /*TITLE_H*/
+#endif /*JOG_INTERFACE_H*/

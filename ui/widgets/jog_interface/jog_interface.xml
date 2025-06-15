@@ -1,0 +1,12 @@
+<widget>
+    <view width="100%">
+        <lv_buttonmatrix
+            align="center"
+            map="' ' '^' ' ' '\n' '&lt;' 'GO' '&gt;' '\n' ' ' 'v' ' ' ''"
+            style_bg_opa="0"
+            style_border_width="0"
+        >
+            <!-- ctrl_map="hidden none hidden none none none none none hidden none hidden none" -->
+        </lv_buttonmatrix>
+    </view>
+</widget>

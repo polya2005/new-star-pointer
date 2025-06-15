@@ -1,0 +1,5 @@
+<widget>
+    <view extends="lv_tabview">
+        
+    </view>
+</widget>

@@ -1,11 +1,13 @@
 /**
- * @file starptr_interface.c
+ * @file jog_interface.c
+ *
  */
 
 /*********************
  *      INCLUDES
  *********************/
-#include "starptr_interface.h"
+#include "jog_interface_private_gen.h"
+#include "ui.h"
 
 /*********************
  *      DEFINES
@@ -31,10 +33,22 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-void starptr_interface_init(const char * asset_path)
+void jog_interface_constructor_hook(lv_obj_t * obj)
 {
-    starptr_interface_init_gen(asset_path);
+
 }
+
+void jog_interface_destructor_hook(lv_obj_t * obj)
+{
+
+}
+
+void jog_interface_event_hook(lv_event_t * e)
+{
+
+}
+
+
 
 /**********************
  *   STATIC FUNCTIONS
