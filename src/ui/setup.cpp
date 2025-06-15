@@ -1,11 +1,11 @@
 /**
  * Copyright (c) 2025 Boonyakorn Thanpanit
  */
-#include "ui/setup.h"
-
 #include <TFT_eSPI.h>
 #include <XPT2046_Touchscreen.h>
 #include <lvgl.h>
+
+#include "ui.h"
 
 #define XPT2046_CS 15
 
