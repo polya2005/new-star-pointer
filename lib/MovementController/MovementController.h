@@ -137,12 +137,12 @@ class MovementController {
   /**
    * @brief Jogs to east once.
    */
-  inline void JogEast();
+  void JogEast();
 
   /**
    * @brief Jogs to west once.
    */
-  inline void JogWest();
+  void JogWest();
 
   /**
    * @brief Jogs up once if the pointer is not past the zenith.
