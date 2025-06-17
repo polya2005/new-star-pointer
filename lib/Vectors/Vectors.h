@@ -12,6 +12,21 @@
 class Vector3 {
  public:
   /**
+   * @brief Default constructor for Vector3.
+   * Initializes the vector to (0, 0, 0).
+   */
+  Vector3() : x(0), y(0), z(0) {}
+
+  /**
+   * @brief Constructor for Vector3 with specified components.
+   *
+   * @param x The x component of the vector.
+   * @param y The y component of the vector.
+   * @param z The z component of the vector.
+   */
+  Vector3(double x, double y, double z) : x(x), y(y), z(z) {}
+
+  /**
    * @brief The x component of the vector.
    */
   double x;
