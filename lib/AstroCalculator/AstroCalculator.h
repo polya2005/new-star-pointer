@@ -42,10 +42,23 @@ class AstroCalculator {
    * by a clock.
    */
   double lst_;  // in radians
+  double decimal_year_;  // in decimal years
 
   AstroCalculator() {}
   AstroCalculator(const AstroCalculator& other) = delete;
   void operator=(const AstroCalculator& other) = delete;
+
+  /**
+   * @brief Updates the local sidereal time.
+   *
+   * Updates the local sidereal time based on the given Julian date. The Julian
+   * date is the number of days since the beginning of the Julian period, which
+   * started on January 1, 4713 BC. The Julian date is used in astronomy to
+   * avoid the complexities of the Gregorian calendar.
+   *
+   * @param jd The Julian date.
+   */
+  void UpdateLst(double jd);
 
  public:
   /**
@@ -92,16 +105,11 @@ class AstroCalculator {
   HorizontalCoordinates EquatorialToHorizontal(double ra, double dec);
 
   /**
-   * @brief Updates the local sidereal time.
-   *
-   * Updates the local sidereal time based on the given Julian date. The Julian
-   * date is the number of days since the beginning of the Julian period, which
-   * started on January 1, 4713 BC. The Julian date is used in astronomy to
-   * avoid the complexities of the Gregorian calendar.
+   * @brief Sets the Julian date.
    *
    * @param jd The Julian date.
    */
-  void UpdateLst(double jd);
+  void SetJulianDate(double jd);
 };
 
 #endif  // LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
