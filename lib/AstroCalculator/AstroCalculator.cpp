@@ -62,3 +62,7 @@ void AstroCalculator::UpdateLst(double jd) {
                 6.770708127e-6 * t * t - t * t * t / 2217919625.0;
   lst_ = fmod(gmst + longitude_, TWO_PI);
 }
+
+Vector3 AstroCalculator::EarthFrameNormalizedMagneticField() const {
+  return Vector3();
+}

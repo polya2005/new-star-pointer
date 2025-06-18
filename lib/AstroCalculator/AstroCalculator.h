@@ -6,6 +6,7 @@
 #define LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
 
 #include "Datatypes.h"
+#include "Vectors.h"
 
 /**
  * @brief A class that calculates the positions of celestial objects.
@@ -41,7 +42,7 @@ class AstroCalculator {
    * should not be confused with the local mean time, which is the time measured
    * by a clock.
    */
-  double lst_;  // in radians
+  double lst_;           // in radians
   double decimal_year_;  // in decimal years
 
   AstroCalculator() {}
@@ -103,6 +104,22 @@ class AstroCalculator {
    * @return HorizontalCoordinates
    */
   HorizontalCoordinates EquatorialToHorizontal(double ra, double dec);
+
+  /**
+   * @brief Gets the horizontal components of the normalized earth's magnetic
+   * field in the Earth's reference frame.
+   *
+   * This function calculates the horizontal components of the Earth's
+   * magnetic field based on the observer's location and the current time,
+   * using the World Magnetic Model (WMM).
+   *
+   * The Earth's reference frame has the X-axis pointing east, the Y-axis
+   * pointing north, and the Z-axis pointing up.
+   *
+   * @return HorizontalCoordinates The horizontal components of the Earth's
+   * magnetic field in the Earth's reference frame.
+   */
+  Vector3 EarthFrameNormalizedMagneticField() const;
 
   /**
    * @brief Sets the Julian date.
