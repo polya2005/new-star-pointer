@@ -34,6 +34,14 @@ class AstroCalculator {
    */
   double longitude_;
   /**
+   * @brief sin_longitude_ The sine of the observer's longitude.
+   */
+  double sin_longitude_;
+  /**
+   * @brief cos_longitude_ The cosine of the observer's longitude.
+   */
+  double cos_longitude_;
+  /**
    * @brief The local sidereal time in radians.
    *
    * The local sidereal time is defined as the sum of the right ascension and
