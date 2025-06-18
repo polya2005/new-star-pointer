@@ -18,7 +18,7 @@ Sensors& Sensors::GetInstance() {
   return instance;
 }
 
-void Sensors::Init(SerialUART* gpsSerial = &Serial1) {
+void Sensors::Init(SerialUART* gpsSerial) {
   this->gpsSerial = *gpsSerial;
   accel = Adafruit_ADXL345_Unified(12345);
   if (!accel.begin()) {
@@ -46,7 +46,7 @@ Vector3 Sensors::ReadMagneticField() {
   return {v.XAxis, v.YAxis, v.ZAxis};
 }
 
-ObserverLocation Sensors::ReadObserverLocation(uint32_t timeout = 2000ul) {
+ObserverLocation Sensors::ReadObserverLocation(uint32_t timeout) {
   ObserverLocation location{};
   uint32_t start = millis();
   while (millis() - start < timeout) {
