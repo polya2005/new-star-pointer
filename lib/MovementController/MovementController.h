@@ -162,7 +162,7 @@ class MovementController {
    * @return true if the motion is in progress.
    * @return false otherwise.
    */
-  inline bool Run();
+  bool Run();
 
   /**
    * @brief Stops the movements.

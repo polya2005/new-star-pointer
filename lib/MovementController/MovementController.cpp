@@ -76,7 +76,7 @@ void MovementController::JogDown() {
   }
 }
 
-inline bool MovementController::Run() { return az_->run() || al_->run(); }
+bool MovementController::Run() { return az_->run() || al_->run(); }
 
 void MovementController::Stop() {
   az_->stop();
