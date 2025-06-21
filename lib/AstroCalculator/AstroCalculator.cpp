@@ -489,7 +489,6 @@ ConstModel __in_flash() WMM = {
    -1.7954038938891263e-13}
 };
 
-
 Vector3 AstroCalculator::EarthFrameNormalizedMagneticField() const {
   constexpr double a = 6378137;
   constexpr double e2 = 0.0066943799901413165;  // f*(2-f);
@@ -502,6 +501,7 @@ Vector3 AstroCalculator::EarthFrameNormalizedMagneticField() const {
   double y = r * sin_longitude_;
   double px = 0;
   double py = 0;
+  double pz = 0;
   double rsqrd = x * x + y * y + z * z;
   double temp = EARTH_R / rsqrd;
   double a = x * temp;
@@ -559,7 +559,15 @@ Vector3 AstroCalculator::EarthFrameNormalizedMagneticField() const {
         px += -WMM.C(n - 1, 0, decimal_year_) * Vnm;
         py += -WMM.C(n - 1, 0, decimal_year_) * Wnm;
       }
+      if (n >= 2 && n > m) {
+        pz += (n - m) * (-WMM.C(n - 1, m, decimal_year_) * Vnm -
+                         WMM.S(n - 1, m, decimal_year_) * Wnm);
+      }
     }
   }
-  return Vector3(px, py, 0.0).Normalized();  // Return normalized vector
+  return Vector3(cos_longitude_ * py - sin_longitude_ * px,
+                 cos_latitude_ * pz - sin_latitude_ * (cos_longitude_ * px +
+                                                       sin_longitude_ * py),
+                 0.0)
+      .Normalized();  // Return normalized vector
 }
