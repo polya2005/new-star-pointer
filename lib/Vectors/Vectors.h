@@ -12,6 +12,21 @@
 class Vector3 {
  public:
   /**
+   * @brief The x component of the vector.
+   */
+  double x;
+
+  /**
+   * @brief The y component of the vector.
+   */
+  double y;
+
+  /**
+   * @brief The z component of the vector.
+   */
+  double z;
+
+  /**
    * @brief Default constructor for Vector3.
    * Initializes the vector to (0, 0, 0).
    */
@@ -27,19 +42,26 @@ class Vector3 {
   Vector3(double x, double y, double z) : x(x), y(y), z(z) {}
 
   /**
-   * @brief The x component of the vector.
+   * @brief Copy constructor for Vector3.
+   *
+   * @param v The vector to copy.
    */
-  double x;
+  Vector3(const Vector3& v) : x(v.x), y(v.y), z(v.z) {}
 
   /**
-   * @brief The y component of the vector.
+   * @brief Assignment operator for Vector3.
+   *
+   * @param v The vector to assign.
+   * @return Vector3& A reference to this vector.
    */
-  double y;
-
-  /**
-   * @brief The z component of the vector.
-   */
-  double z;
+  Vector3& operator=(const Vector3& v) {
+    if (this != &v) {
+      x = v.x;
+      y = v.y;
+      z = v.z;
+    }
+    return *this;
+  }
 
   /**
    * @brief Computes the cross product of this vector and another vector.
@@ -56,6 +78,47 @@ class Vector3 {
    * @return double The dot product of this vector and the other vector.
    */
   double Dot(const Vector3& v) const;
+
+  /**
+   * @brief multiplies this vector by a scalar.
+   *
+   * @param scalar The scalar to multiply with.
+   * @return Vector3 The resulting vector after multiplication.
+   */
+  inline Vector3 operator*(double scalar) const {
+    return {x * scalar, y * scalar, z * scalar};
+  }
+
+  /**
+   * @see operator*(double scalar)
+   *
+   * @param scalar
+   * @param v
+   * @return Vector3
+   */
+  friend inline Vector3 operator*(double scalar, const Vector3& v) {
+    return {v.x * scalar, v.y * scalar, v.z * scalar};
+  }
+
+  /**
+   * @brief Adds another vector to this vector.
+   *
+   * @param v The vector to add.
+   * @return Vector3 The resulting vector after addition.
+   */
+  inline Vector3 operator+(const Vector3& v) const {
+    return {x + v.x, y + v.y, z + v.z};
+  }
+
+  /**
+   * @brief Subtracts another vector from this vector.
+   *
+   * @param v The vector to subtract.
+   * @return Vector3 The resulting vector after subtraction.
+   */
+  inline Vector3 operator-(const Vector3& v) const {
+    return {x - v.x, y - v.y, z - v.z};
+  }
 
   /**
    * @brief Computes the magnitude of the vector.
