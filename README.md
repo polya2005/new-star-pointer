@@ -35,4 +35,15 @@ I am also working on a new design to accommodate the new motors and possibly red
 The code is almost a complete rewrite because the original code was poorly structured and because I made some questionable decisions. The new code will be described in the next section. I also switched to PlatformIO.
 
 ## Project structure
-This project follows the standard PlatformIO project structure. Libraries are to be described below.
+This project follows the standard PlatformIO project structure. The libraries are described below.
+
+| Library | Description |
+| ------- | ----------- |
+| `AstroCalculator` | A singleton class for coordinates conversion and earth magnetic field calculation. |
+| `Datatypes` | `struct` types for coordinate systems. |
+| `DeviceCoordinates` | A class that represents motor positions and supports conversions to and from the real horizontal coordinates. |
+| `Matrices` | A 3x3 matrix class |
+| `MovementController` | A singleton class for motor control |
+| `Sensors` | A singleton class for sensor access. Includes accelerometer, magnetometer, and GPS. |
+| `TempDebug` | A header file to quickly toggle print statements. |
+| `Vectors` | A 3D vector class. |
