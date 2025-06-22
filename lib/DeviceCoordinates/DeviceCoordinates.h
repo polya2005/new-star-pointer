@@ -12,7 +12,7 @@
 #include <utility>  // for std::pair
 
 /**
- * @brief A class that represents device coordinates andi provides functions to
+ * @brief A class that represents device coordinates and provides functions to
  * convert between device coordinates and horizontal coordinates.
  *
  * The class provides functions to convert between device coordinates and
