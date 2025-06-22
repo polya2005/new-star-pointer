@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sensors_0',['Sensors',['../class_sensors.html',1,'']]]
+  ['matrix3_0',['Matrix3',['../class_matrix3.html',1,'']]],
+  ['movementcontroller_1',['MovementController',['../class_movement_controller.html',1,'']]]
 ];

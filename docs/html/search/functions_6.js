@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['moveto_0',['MoveTo',['../class_movement_controller.html#aadad235ae0cf94cd0072cad989b62b9a',1,'MovementController']]]
+  ['init_0',['Init',['../class_sensors.html#a66a7e65d6e041de576028f97b8379594',1,'Sensors']]]
 ];

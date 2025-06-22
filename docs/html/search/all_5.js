@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['init_0',['Init',['../class_sensors.html#a66a7e65d6e041de576028f97b8379594',1,'Sensors']]],
-  ['is_5fvalid_1',['is_valid',['../struct_observer_location.html#a3b1f568c039cabfc3b3ba52caa7f85e9',1,'ObserverLocation']]]
+  ['horizontalcoordinates_0',['HorizontalCoordinates',['../struct_horizontal_coordinates.html',1,'']]],
+  ['horizontaltoequatorial_1',['HorizontalToEquatorial',['../class_astro_calculator.html#a7bff1f48bdbc51f7054402befffa1b22',1,'AstroCalculator']]]
 ];

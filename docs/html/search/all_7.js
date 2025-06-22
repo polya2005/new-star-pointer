@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['latitude_0',['latitude',['../struct_observer_location.html#a70c77b432c8b3769228a4ea9b6857cf3',1,'ObserverLocation']]],
-  ['longitude_1',['longitude',['../struct_observer_location.html#aafe502f3e577c35e4cc5bb7e659cbb7d',1,'ObserverLocation']]]
+  ['jogdown_0',['JogDown',['../class_movement_controller.html#a4559923a116e814743987cc3caf5a6b4',1,'MovementController']]],
+  ['jogeast_1',['JogEast',['../class_movement_controller.html#a481dd74ccb749400b812eee54eb51dd3',1,'MovementController']]],
+  ['jogup_2',['JogUp',['../class_movement_controller.html#a72b14a9ee84907e65fdc8e31f8b98293',1,'MovementController']]],
+  ['jogwest_3',['JogWest',['../class_movement_controller.html#aa7328ee5f2d6578b62b214c3b3ea1d2a',1,'MovementController']]]
 ];

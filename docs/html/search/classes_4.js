@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['observerlocation_0',['ObserverLocation',['../struct_observer_location.html',1,'']]]
+  ['horizontalcoordinates_0',['HorizontalCoordinates',['../struct_horizontal_coordinates.html',1,'']]]
 ];

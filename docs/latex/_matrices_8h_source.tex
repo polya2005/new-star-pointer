@@ -1,0 +1,35 @@
+\doxysection{Matrices.\+h}
+\hypertarget{_matrices_8h_source}{}\label{_matrices_8h_source}\index{Matrices/Matrices.h@{Matrices/Matrices.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_MATRICES\_MATRICES\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_MATRICES\_MATRICES\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Vectors.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\ \{}
+\DoxyCodeLine{00014\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{class_vector3}{Vector3}}\ columns\_[3];\ \ \textcolor{comment}{//\ The\ columns\ of\ the\ matrix.}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}();}
+\DoxyCodeLine{00025\ \ \ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ c1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ c2,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ c3);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\&\ m);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\&\ \mbox{\hyperlink{class_matrix3_a3953be3bb1fb99ee3367da846fbb2291}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\&\ m);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{class_vector3}{Vector3}}\ \mbox{\hyperlink{class_matrix3_aa32696f4e94d8f467f0d0b521838515e}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\ \mbox{\hyperlink{class_matrix3_aa32696f4e94d8f467f0d0b521838515e}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\&\ m)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{class_matrix3_a773fdcf139826ddb39c30e7d08bbdb90}{Matrix3}}\ \mbox{\hyperlink{class_matrix3_a7e011d73c9c8860dec853e2786550012}{Transposed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_MATRICES\_MATRICES\_H\_}}
+
+\end{DoxyCode}

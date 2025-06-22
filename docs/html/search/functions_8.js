@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['setcurrentposition_0',['SetCurrentPosition',['../class_movement_controller.html#ae8512ccea34cf77aaf2a8442e9e95751',1,'MovementController']]],
-  ['setjogstepangle_1',['SetJogStepAngle',['../class_movement_controller.html#a10c95de1a1b6e43cbc33a9244274bb27',1,'MovementController']]],
-  ['setobserverlocation_2',['SetObserverLocation',['../class_astro_calculator.html#a89e79c1cd3d1df860d9d3a8845e32cae',1,'AstroCalculator']]],
-  ['stop_3',['Stop',['../class_movement_controller.html#a19619b0ababc86230c0df3132c1e7ae9',1,'MovementController']]]
+  ['magnitude_0',['Magnitude',['../class_vector3.html#a96e6e436600d1420250ef2868854988d',1,'Vector3']]],
+  ['matrix3_1',['Matrix3',['../class_matrix3.html#a773fdcf139826ddb39c30e7d08bbdb90',1,'Matrix3::Matrix3()'],['../class_matrix3.html#a44d355818210772697a1e4c9a96c658b',1,'Matrix3::Matrix3(const Vector3 &amp;c1, const Vector3 &amp;c2, const Vector3 &amp;c3)'],['../class_matrix3.html#a4b6d2f0301b406dc9d41acdd96d23d29',1,'Matrix3::Matrix3(const Matrix3 &amp;m)']]],
+  ['moveto_2',['MoveTo',['../class_movement_controller.html#aadad235ae0cf94cd0072cad989b62b9a',1,'MovementController']]]
 ];

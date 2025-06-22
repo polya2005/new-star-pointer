@@ -1,0 +1,173 @@
+\doxysection{Device\+Coordinates Class Reference}
+\hypertarget{class_device_coordinates}{}\label{class_device_coordinates}\index{DeviceCoordinates@{DeviceCoordinates}}
+
+
+A class that represents device coordinates andi provides functions to convert between device coordinates and horizontal coordinates.  
+
+
+
+
+{\ttfamily \#include $<$Device\+Coordinates.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{Device\+Coordinates}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_device_coordinates}{Device\+Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_device_coordinates_af8def8942306f54924dd3039a1944f23}{Device\+Coordinates}} (double azimuth, double altitude)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_device_coordinates}{Device\+Coordinates} with specified azimuth and altitude. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_device_coordinates_a58c16d0cb6136f30075e6ba62a7f5ece}{Device\+Coordinates}} (const \mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_device_coordinates}{Device\+Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \& \mbox{\hyperlink{class_device_coordinates_a318ff2c886ad94a67a90f4e7437d897e}{operator=}} (const \mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator for \doxylink{class_device_coordinates}{Device\+Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_device_coordinates_a86aa9ba166424d3b4567352f74f81519}{Device\+Coordinates}} (const \mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} \&hc)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} object to \doxylink{class_device_coordinates}{Device\+Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} \mbox{\hyperlink{class_device_coordinates_ab34c1e2137d4b609cb653db021f2ed79}{To\+Horizontal\+Coordinates}} () const
+\begin{DoxyCompactList}\small\item\em Converts the device coordinates to horizontal coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_device_coordinates_a6b52857a190c7610776979e1996e11ed}{Set\+Calibration\+Data}} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&g, const \mbox{\hyperlink{class_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Sets the calibration data for the device coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_device_coordinates_a01cd27fcff04ae9119cbd4fecb98b36a}\label{class_device_coordinates_a01cd27fcff04ae9119cbd4fecb98b36a} 
+double {\bfseries d\+\_\+azimuth}
+\item 
+\Hypertarget{class_device_coordinates_a2a201f7f58aaec342250780e8782f12d}\label{class_device_coordinates_a2a201f7f58aaec342250780e8782f12d} 
+double {\bfseries d\+\_\+altitude}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents device coordinates andi provides functions to convert between device coordinates and horizontal coordinates. 
+
+Copyright (c) 2025 Boonyakorn Thanpanit 
+
+The class provides functions to convert between device coordinates and horizontal coordinates. The device coordinates are defined by the azimuth and altitude angles, both in radians and measured at the motors. The horizontal coordinates are defined by the azimuth and altitude angles, both in radians.
+
+The class depends on the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class to convert between device coordinates and horizontal coordinates. {\bfseries{The \doxylink{class_astro_calculator}{Astro\+Calculator} instance must be given the coordinates and current time before setting the calibration data.}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{DeviceCoordinates()}{DeviceCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908} 
+Device\+Coordinates\+::\+Device\+Coordinates (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for \doxylink{class_device_coordinates}{Device\+Coordinates}. 
+
+Initializes the azimuth and altitude angles to 0. \Hypertarget{class_device_coordinates_af8def8942306f54924dd3039a1944f23}\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{DeviceCoordinates()}{DeviceCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_device_coordinates_af8def8942306f54924dd3039a1944f23} 
+Device\+Coordinates\+::\+Device\+Coordinates (\begin{DoxyParamCaption}\item[{double}]{azimuth}{, }\item[{double}]{altitude}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_device_coordinates}{Device\+Coordinates} with specified azimuth and altitude. 
+
+Initializes the azimuth and altitude angles to the specified values. 
+\begin{DoxyParams}{Parameters}
+{\em azimuth} & The azimuth angle in radians. \\
+\hline
+{\em altitude} & The altitude angle in radians. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_coordinates_a58c16d0cb6136f30075e6ba62a7f5ece}\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{DeviceCoordinates()}{DeviceCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_device_coordinates_a58c16d0cb6136f30075e6ba62a7f5ece} 
+Device\+Coordinates\+::\+Device\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy constructor for \doxylink{class_device_coordinates}{Device\+Coordinates}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_device_coordinates}{Device\+Coordinates} object to copy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_coordinates_a86aa9ba166424d3b4567352f74f81519}\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\index{DeviceCoordinates@{DeviceCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{DeviceCoordinates()}{DeviceCoordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_device_coordinates_a86aa9ba166424d3b4567352f74f81519} 
+Device\+Coordinates\+::\+Device\+Coordinates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} \&}]{hc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Converts a \doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} object to \doxylink{class_device_coordinates}{Device\+Coordinates}. 
+
+This constructor converts the azimuth and altitude angles in horizontal coordinates to a \doxylink{class_device_coordinates}{Device\+Coordinates} object representing the device coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hc} & The \doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} object to convert. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_device_coordinates_a318ff2c886ad94a67a90f4e7437d897e}\index{DeviceCoordinates@{DeviceCoordinates}!operator=@{operator=}}
+\index{operator=@{operator=}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_device_coordinates_a318ff2c886ad94a67a90f4e7437d897e} 
+\mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \& Device\+Coordinates\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_device_coordinates}{Device\+Coordinates}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assignment operator for \doxylink{class_device_coordinates}{Device\+Coordinates}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_device_coordinates}{Device\+Coordinates} object to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_device_coordinates}{Device\+Coordinates}\& A reference to this \doxylink{class_device_coordinates}{Device\+Coordinates} object. 
+\end{DoxyReturn}
+\Hypertarget{class_device_coordinates_a6b52857a190c7610776979e1996e11ed}\index{DeviceCoordinates@{DeviceCoordinates}!SetCalibrationData@{SetCalibrationData}}
+\index{SetCalibrationData@{SetCalibrationData}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{SetCalibrationData()}{SetCalibrationData()}}
+{\footnotesize\ttfamily \label{class_device_coordinates_a6b52857a190c7610776979e1996e11ed} 
+void Device\+Coordinates\+::\+Set\+Calibration\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{g}{, }\item[{const \mbox{\hyperlink{class_vector3}{Vector3}} \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets the calibration data for the device coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The gravity vector in device coordinates. \\
+\hline
+{\em b} & The magnetic field vector in device coordinates.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The \doxylink{class_astro_calculator}{Astro\+Calculator} instance must be given the coordinates and current time before setting the calibration data. 
+\end{DoxyNote}
+\Hypertarget{class_device_coordinates_ab34c1e2137d4b609cb653db021f2ed79}\index{DeviceCoordinates@{DeviceCoordinates}!ToHorizontalCoordinates@{ToHorizontalCoordinates}}
+\index{ToHorizontalCoordinates@{ToHorizontalCoordinates}!DeviceCoordinates@{DeviceCoordinates}}
+\doxysubsubsection{\texorpdfstring{ToHorizontalCoordinates()}{ToHorizontalCoordinates()}}
+{\footnotesize\ttfamily \label{class_device_coordinates_ab34c1e2137d4b609cb653db021f2ed79} 
+\mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} Device\+Coordinates\+::\+To\+Horizontal\+Coordinates (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Converts the device coordinates to horizontal coordinates. 
+
+This function converts the azimuth and altitude angles in device coordinates to a \doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} object representing the horizontal coordinates.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} The horizontal coordinates corresponding to the device coordinates. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Device\+Coordinates/Device\+Coordinates.\+h\item 
+Device\+Coordinates/Device\+Coordinates.\+cpp\end{DoxyCompactItemize}

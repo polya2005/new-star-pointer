@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['movementcontroller_0',['MovementController',['../class_movement_controller.html',1,'']]]
+  ['equatorialcoordinates_0',['EquatorialCoordinates',['../struct_equatorial_coordinates.html',1,'']]]
 ];

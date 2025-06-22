@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector3_0',['Vector3',['../struct_vector3.html',1,'']]]
+  ['observerlocation_0',['ObserverLocation',['../struct_observer_location.html',1,'']]]
 ];

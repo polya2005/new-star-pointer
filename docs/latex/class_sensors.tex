@@ -15,9 +15,9 @@ A class that provides access to various sensors.
 \Hypertarget{class_sensors_a66a7e65d6e041de576028f97b8379594}\label{class_sensors_a66a7e65d6e041de576028f97b8379594} 
 void {\bfseries Init} (Serial\+UART \texorpdfstring{$\ast$}{*}gps\+Serial=\&Serial1)
 \begin{DoxyCompactList}\small\item\em Initializes the sensors. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914}{Read\+Acceleration}} ()
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914}{Read\+Acceleration}} ()
 \begin{DoxyCompactList}\small\item\em Reads the acceleration from the accelerometer. Reads the acceleration from the accelerometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734}{Read\+Magnetic\+Field}} ()
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734}{Read\+Magnetic\+Field}} ()
 \begin{DoxyCompactList}\small\item\em Reads the magnetic field from the magnetometer. Reads the magnetic field from the magnetometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_observer_location}{Observer\+Location}} \mbox{\hyperlink{class_sensors_a79f232f755e558e6788b601322127fa8}{Read\+Observer\+Location}} (uint32\+\_\+t timeout=2000ul)
 \begin{DoxyCompactList}\small\item\em Reads the observer\textquotesingle{}s location from the GPS. \end{DoxyCompactList}\item 
@@ -55,14 +55,14 @@ Gets the singleton instance of the \doxylink{class_sensors}{Sensors} class.
 \index{ReadAcceleration@{ReadAcceleration}!Sensors@{Sensors}}
 \doxysubsubsection{\texorpdfstring{ReadAcceleration()}{ReadAcceleration()}}
 {\footnotesize\ttfamily \label{class_sensors_a0eaedf3ba1b2e10d3e6d8413d861a914} 
-\mbox{\hyperlink{struct_vector3}{Vector3}} Sensors\+::\+Read\+Acceleration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_vector3}{Vector3}} Sensors\+::\+Read\+Acceleration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Reads the acceleration from the accelerometer. Reads the acceleration from the accelerometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. 
 
 \begin{DoxyReturn}{Returns}
-\doxylink{struct_vector3}{Vector3} The acceleration vector. 
+\doxylink{class_vector3}{Vector3} The acceleration vector. 
 \end{DoxyReturn}
 \Hypertarget{class_sensors_a00858f4b35c4b474d4dc872688559623}\index{Sensors@{Sensors}!ReadJulianDate@{ReadJulianDate}}
 \index{ReadJulianDate@{ReadJulianDate}!Sensors@{Sensors}}
@@ -83,14 +83,14 @@ double The current Julian date.
 \index{ReadMagneticField@{ReadMagneticField}!Sensors@{Sensors}}
 \doxysubsubsection{\texorpdfstring{ReadMagneticField()}{ReadMagneticField()}}
 {\footnotesize\ttfamily \label{class_sensors_a0d4fbcdbac2355ee238ea5c915bfc734} 
-\mbox{\hyperlink{struct_vector3}{Vector3}} Sensors\+::\+Read\+Magnetic\+Field (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_vector3}{Vector3}} Sensors\+::\+Read\+Magnetic\+Field (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Reads the magnetic field from the magnetometer. Reads the magnetic field from the magnetometer and returns it as a 3d vector. Must call \doxylink{class_sensors_a66a7e65d6e041de576028f97b8379594}{Init()} before calling this method for the first time. 
 
 \begin{DoxyReturn}{Returns}
-\doxylink{struct_vector3}{Vector3} The magnetic field vector. 
+\doxylink{class_vector3}{Vector3} The magnetic field vector. 
 \end{DoxyReturn}
 \Hypertarget{class_sensors_a79f232f755e558e6788b601322127fa8}\index{Sensors@{Sensors}!ReadObserverLocation@{ReadObserverLocation}}
 \index{ReadObserverLocation@{ReadObserverLocation}!Sensors@{Sensors}}

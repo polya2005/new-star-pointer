@@ -1,0 +1,54 @@
+\doxysection{Device\+Coordinates.\+h}
+\hypertarget{_device_coordinates_8h_source}{}\label{_device_coordinates_8h_source}\index{DeviceCoordinates/DeviceCoordinates.h@{DeviceCoordinates/DeviceCoordinates.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ LIB\_DEVICECOORDINATES\_DEVICECOORDINATES\_H\_}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ LIB\_DEVICECOORDINATES\_DEVICECOORDINATES\_H\_}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <AstroCalculator.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Datatypes.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <Matrices.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Vectors.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <utility>}\ \ \textcolor{comment}{//\ for\ std::pair}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}\ \{}
+\DoxyCodeLine{00029\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_astro_calculator}{AstroCalculator}}\&\ astro\_calculator\_;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_matrix3}{Matrix3}}\ device\_to\_horizontal\_,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ horizontal\_to\_device\_;\ \ \textcolor{comment}{//\ The\ transformation\ matrices}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_vector3}{Vector3}}\ AzimuthAltitudeToVector3(\textcolor{keywordtype}{double}\ azimuth,\ \textcolor{keywordtype}{double}\ altitude);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{static}\ std::pair<double,\ double>\ Vector3ToAzimuthAltitude(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ v);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{double}\ d\_azimuth;\ \ \ \textcolor{comment}{//\ The\ azimuth\ angle\ in\ radians.}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{double}\ d\_altitude;\ \ \textcolor{comment}{//\ The\ altitude\ angle\ in\ radians.}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_device_coordinates_a6b52857a190c7610776979e1996e11ed}{SetCalibrationData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ b);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}()\ :\ d\_azimuth(0),\ d\_altitude(0)\ \{\}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00088\ \ \ \mbox{\hyperlink{class_device_coordinates_af8def8942306f54924dd3039a1944f23}{DeviceCoordinates}}(\textcolor{keywordtype}{double}\ azimuth,\ \textcolor{keywordtype}{double}\ altitude)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ :\ d\_azimuth(azimuth),\ d\_altitude(altitude)\ \{\}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{class_device_coordinates_a58c16d0cb6136f30075e6ba62a7f5ece}{DeviceCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}\&\ other)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ :\ d\_azimuth(other.d\_azimuth),\ d\_altitude(other.d\_altitude)\ \{\}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}\&\ \mbox{\hyperlink{class_device_coordinates_a318ff2c886ad94a67a90f4e7437d897e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}\&\ other)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ d\_azimuth\ =\ other.d\_azimuth;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ d\_altitude\ =\ other.d\_altitude;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00111\ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_device_coordinates_a0d634e6ddd1659201130469b2ee61908}{DeviceCoordinates}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_horizontal_coordinates}{HorizontalCoordinates}}\&\ hc);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00134\ \ \ \mbox{\hyperlink{struct_horizontal_coordinates}{HorizontalCoordinates}}\ \mbox{\hyperlink{class_device_coordinates_ab34c1e2137d4b609cb653db021f2ed79}{ToHorizontalCoordinates}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_DEVICECOORDINATES\_DEVICECOORDINATES\_H\_}}
+
+\end{DoxyCode}
