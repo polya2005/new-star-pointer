@@ -7,3 +7,4 @@ Starpointer_pico.code-workspace
 .pio/libdeps/pico/TFT_eSPI/*
 !.pio/libdeps/pico/lv_conf.h
 !.pio/libdeps/pico/TFT_eSPI/User_Setup_Select.h
+*.pyc
