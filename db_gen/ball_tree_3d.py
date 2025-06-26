@@ -1,7 +1,10 @@
+from struct import Struct
 import numpy as np
 
 
 class BallNode:
+    binary_format = Struct("< 3d d H H H ?")
+
     def __init__(
         self, center, radius, left=None, right=None, index=None, is_leaf=False
     ):
@@ -11,6 +14,19 @@ class BallNode:
         self.right = right
         self.index = index  # original index of the point (for leaves)
         self.is_leaf = is_leaf
+
+    def pack(self):
+        """
+        Packs the node into a binary format.
+        """
+        return self.binary_format.pack(
+            *self.center,
+            self.radius,
+            self.left or -1,
+            self.right or -1,
+            self.index or -1,
+            self.is_leaf
+        )
 
 
 class BallTree3D:
