@@ -3,7 +3,7 @@ import numpy as np
 
 
 class BallNode:
-    binary_format = Struct("< 3d d H H H ?")
+    binary_format = Struct("< 3d d h h h ?")
 
     def __init__(
         self, center, radius, left=None, right=None, index=None, is_leaf=False
