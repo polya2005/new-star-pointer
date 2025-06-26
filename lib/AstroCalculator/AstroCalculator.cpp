@@ -490,13 +490,13 @@ ConstModel __in_flash() WMM = {
 };
 
 Vector3 AstroCalculator::EarthFrameNormalizedMagneticField() const {
-  constexpr double a = 6378137;
+  constexpr double a_earth = 6378137;
   constexpr double e2 = 0.0066943799901413165;  // f*(2-f);
   constexpr double e2m = 0.9933056200098587;    // (1-f)*(1-f);
 
-  double n = a / sqrtf(1.0f - e2 * (sin_latitude_ * sin_latitude_));
-  double z = (e2m * n) * sin_latitude_;
-  double r = n * cos_latitude_;
+  double n_earth = a_earth / sqrtf(1.0f - e2 * (sin_latitude_ * sin_latitude_));
+  double z = (e2m * n_earth) * sin_latitude_;
+  double r = n_earth * cos_latitude_;
   double x = r * cos_longitude_;
   double y = r * sin_longitude_;
   double px = 0;
