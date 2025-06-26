@@ -161,3 +161,4 @@ if __name__ == "__main__":
     with open("db_files/ball_tree.bin", "wb") as ball_tree_file:
         for node in tree.nodes:
             ball_tree_file.write(node.pack())
+        ball_tree_file.write(Struct("< h").pack(tree.root))
