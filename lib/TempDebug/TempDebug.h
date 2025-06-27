@@ -5,8 +5,6 @@
 #ifndef LIB_TEMPDEBUG_TEMPDEBUG_H_
 #define LIB_TEMPDEBUG_TEMPDEBUG_H_
 
-#define DEBUG  // Enable debug mode
-
 #ifdef DEBUG
 #define debug1(x) Serial.print(x)
 #define debugln1(x) Serial.println(x)
