@@ -76,11 +76,11 @@ void setup(void) {
   Serial.begin(115200);
   delay(1000);  // delay for the serial monitor to open
 #endif
-  // sensors.Init();
-  // ObserverLocation observer_location = sensors.ReadObserverLocation();
-  // astroCalculator.SetObserverLocation(observer_location.latitude,
-  //                                     observer_location.longitude);
-  // setup_movement();
+  sensors.Init();
+  ObserverLocation observer_location = sensors.ReadObserverLocation();
+  astroCalculator.SetObserverLocation(observer_location.latitude,
+                                      observer_location.longitude);
+  setup_movement();
   debugln("Starting StarPointer Pico...");
   starDatabase.Init();
 
