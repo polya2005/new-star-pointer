@@ -4,7 +4,6 @@
 
 #include "StarDatabase.h"
 
-#define DEBUG
 
 #include <LittleFS.h>
 #include <TempDebug.h>
@@ -18,16 +17,19 @@ StarDatabase& StarDatabase::GetInstance() {
 }
 
 void StarDatabase::Init() {
+  debugln("Initializing StarDatabase...");
   if (!LittleFS.begin()) {
     debugln("Failed to mount LittleFS");
     while (true) continue;  // Halt the program if LittleFS fails to mount
   }
-  File ball_tree_file = LittleFS.open(kBallTreeFileName_, "rb");
+  debugln("LittleFS mounted successfully");
+  File ball_tree_file = LittleFS.open(kBallTreeFileName_, "r");
   if (!ball_tree_file) {
     debugln("Failed to open ball tree file");
     while (true) continue;  // Halt the program if the file cannot be opened
   }
-  ball_tree_file.seek(1, SeekEnd);
+  debugln("Ball tree file opened successfully");
+  ball_tree_file.seek(2, SeekEnd);
   if (ball_tree_file.read(reinterpret_cast<uint8_t*>(&ball_root_),
                           sizeof(ball_root_)) != sizeof(ball_root_)) {
     debugln("Failed to read ball tree root index");
@@ -71,7 +73,7 @@ void StarDatabase::BallTreeSearch(File ball_tree_file, int16_t node_index,
 }
 
 int16_t StarDatabase::SearchByPosition(double ra, double dec) {
-  File ball_tree_file = LittleFS.open(kBallTreeFileName_, "rb");
+  File ball_tree_file = LittleFS.open(kBallTreeFileName_, "r");
   if (!ball_tree_file) {
     debugln(F("Failed to open ball tree file"));
     return STARDATABASE_FAIL_TO_OPEN_FILE;

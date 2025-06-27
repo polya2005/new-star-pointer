@@ -20,13 +20,12 @@
  * SOFTWARE.
  */
 
-#define DEBUG
-
 #include <Arduino.h>
 #include <AstroCalculator.h>
 #include <Datatypes.h>
 #include <MovementController.h>
 #include <Sensors.h>
+#include <StarDatabase.h>
 #include <TempDebug.h>
 #include <Wire.h>
 #include <lvgl.h>
@@ -36,6 +35,7 @@
 AstroCalculator& astroCalculator = AstroCalculator::GetInstance();
 MovementController& movementController = MovementController::GetInstance();
 Sensors& sensors = Sensors::GetInstance();
+StarDatabase& starDatabase = StarDatabase::GetInstance();
 
 void setup_movement() {
   movementController.AttachAzimuthMotor(10, 11, 4000 / TWO_PI);
@@ -76,11 +76,13 @@ void setup(void) {
   Serial.begin(115200);
   delay(1000);  // delay for the serial monitor to open
 #endif
-  sensors.Init();
-  ObserverLocation observer_location = sensors.ReadObserverLocation();
-  astroCalculator.SetObserverLocation(observer_location.latitude,
-                                      observer_location.longitude);
-  setup_movement();
+  // sensors.Init();
+  // ObserverLocation observer_location = sensors.ReadObserverLocation();
+  // astroCalculator.SetObserverLocation(observer_location.latitude,
+  //                                     observer_location.longitude);
+  // setup_movement();
+  debugln("Starting StarPointer Pico...");
+  starDatabase.Init();
 
   // setup user interface
   setup_screen();
@@ -92,12 +94,8 @@ void setup(void) {
 }
 
 void loop(void) {
-  sVector_t mag = compass.readRaw();
-  Serial.print("X: ");
-  Serial.print(mag.XAxis);
-  Serial.print(" Y: ");
-  Serial.print(mag.YAxis);
-  Serial.print(" Z: ");
-  Serial.println(mag.ZAxis);
-  delay(1000);
+  lv_tick_inc(10);  // Increment LVGL tick count
+  delay(10);
+
+  lv_task_handler();  // Process LVGL tasks
 }
