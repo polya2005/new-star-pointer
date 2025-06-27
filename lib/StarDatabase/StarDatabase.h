@@ -6,6 +6,7 @@
 #define LIB_STARDATABASE_STARDATABASE_H_
 
 #include <LittleFS.h>
+#include <TempDebug.h>
 #include <Vectors.h>
 #include <stdint.h>
 
@@ -40,7 +41,7 @@ struct StarDatabaseEntry {
  */
 class StarDatabase {
  private:
-  StarDatabase();
+  StarDatabase() {}
   StarDatabase(const StarDatabase& other) = delete;
   void operator=(const StarDatabase& other) = delete;
 

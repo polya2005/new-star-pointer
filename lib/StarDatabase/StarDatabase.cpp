@@ -4,6 +4,8 @@
 
 #include "StarDatabase.h"
 
+#define DEBUG
+
 #include <LittleFS.h>
 #include <TempDebug.h>
 #include <math.h>
@@ -17,18 +19,18 @@ StarDatabase& StarDatabase::GetInstance() {
 
 void StarDatabase::Init() {
   if (!LittleFS.begin()) {
-    debugln(F("Failed to mount LittleFS"));
+    debugln("Failed to mount LittleFS");
     while (true) continue;  // Halt the program if LittleFS fails to mount
   }
   File ball_tree_file = LittleFS.open(kBallTreeFileName_, "rb");
   if (!ball_tree_file) {
-    debugln(F("Failed to open ball tree file"));
+    debugln("Failed to open ball tree file");
     while (true) continue;  // Halt the program if the file cannot be opened
   }
   ball_tree_file.seek(1, SeekEnd);
   if (ball_tree_file.read(reinterpret_cast<uint8_t*>(&ball_root_),
                           sizeof(ball_root_)) != sizeof(ball_root_)) {
-    debugln(F("Failed to read ball tree root index"));
+    debugln("Failed to read ball tree root index");
     while (true) continue;  // Halt the program if reading fails
   }
 }
@@ -78,6 +80,7 @@ int16_t StarDatabase::SearchByPosition(double ra, double dec) {
   ball_best_index_ = -1;
   ball_best_sim_ = -2.0;
   BallTreeSearch(ball_tree_file, ball_root_, query);
+  ball_tree_file.close();
   return ball_best_index_ >= 0 ? ball_best_index_
                                : STARDATABASE_FAIL_TO_READ_FILE;
 }
