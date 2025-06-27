@@ -21,18 +21,72 @@
  */
 
 #include <Arduino.h>
-#include <DFRobot_QMC5883.h>
+#include <AstroCalculator.h>
+#include <Datatypes.h>
+#include <MovementController.h>
+#include <Sensors.h>
+#include <TempDebug.h>
 #include <Wire.h>
+#include <lvgl.h>
 
-DFRobot_QMC5883 compass(&Wire, QMC5883_ADDRESS);
+#include "ui.h"
+
+AstroCalculator& astroCalculator = AstroCalculator::GetInstance();
+MovementController& movementController = MovementController::GetInstance();
+Sensors& sensors = Sensors::GetInstance();
+
+void setup_movement() {
+  movementController.AttachAzimuthMotor(10, 11, 4000 / TWO_PI);
+  movementController.AttachAltitudeMotor(12, 13, 4000 / TWO_PI);
+  movementController.SetJogStepAngle(0.1 * PI / 180);
+  // TODO(polya2005): Home the motors such that the pointer points eastward
+  movementController.SetCurrentPosition(HALF_PI, 0);
+}
+
+void btnm_jog_value_changed_handler(lv_event_t* e) {
+  lv_obj_t* btnm = reinterpret_cast<lv_obj_t*>(lv_event_get_target(e));
+  int32_t id = lv_buttonmatrix_get_selected_button(btnm);
+
+  switch (id) {
+    case 1:  // Up
+      movementController.JogUp();
+      break;
+    case 3:  // Left
+      movementController.JogEast();
+      break;
+    case 4:  // OK
+      // Implement OK action if needed
+      debugln("OK button pressed");
+      break;
+    case 5:  // Right
+      movementController.JogWest();
+      break;
+    case 7:  // Down
+      movementController.JogDown();
+      break;
+    default:
+      break;
+  }
+}
 
 void setup(void) {
-  Serial.begin(9600);
+#ifdef DEBUG
+  Serial.begin(115200);
   delay(1000);  // delay for the serial monitor to open
-  while (!compass.begin()) {
-    Serial.println("Could not find a valid 5883 sensor, check wiring!");
-    delay(500);
-  }
+#endif
+  sensors.Init();
+  ObserverLocation observer_location = sensors.ReadObserverLocation();
+  astroCalculator.SetObserverLocation(observer_location.latitude,
+                                      observer_location.longitude);
+  setup_movement();
+
+  // setup user interface
+  setup_screen();
+  lv_obj_t* tabview = lv_tabview_create(lv_screen_active());
+  lv_obj_t* tab_goto = lv_tabview_add_tab(tabview, "Goto");
+  lv_obj_t* tab_identify = lv_tabview_add_tab(tabview, "Identify");
+
+  populate_tab_identify(tab_identify, btnm_jog_value_changed_handler);
 }
 
 void loop(void) {
