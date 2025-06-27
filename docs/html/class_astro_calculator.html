@@ -109,11 +109,16 @@ $(function(){initNavTree('class_astro_calculator.html',''); initResizable(true);
   <div class="headertitle"><div class="title">AstroCalculator Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that calculates the positions of celestial objects.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_astro_calculator_8h_source.html">AstroCalculator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a89e79c1cd3d1df860d9d3a8845e32cae" id="r_a89e79c1cd3d1df860d9d3a8845e32cae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89e79c1cd3d1df860d9d3a8845e32cae">SetObserverLocation</a> (double latitude, double longitude)</td></tr>
-<tr class="memdesc:a89e79c1cd3d1df860d9d3a8845e32cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the observer location.  <br /></td></tr>
+<tr class="memdesc:a89e79c1cd3d1df860d9d3a8845e32cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the observer location.  <br /></td></tr>
 <tr class="separator:a89e79c1cd3d1df860d9d3a8845e32cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bff1f48bdbc51f7054402befffa1b22" id="r_a7bff1f48bdbc51f7054402befffa1b22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_equatorial_coordinates.html">EquatorialCoordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bff1f48bdbc51f7054402befffa1b22">HorizontalToEquatorial</a> (double azimuth, double altitude)</td></tr>
 <tr class="memdesc:a7bff1f48bdbc51f7054402befffa1b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given horizontal coordinates into equatorial coordinates.  <br /></td></tr>
@@ -121,17 +126,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a19339760a33a2ce135df3d6ff4a6e4e7" id="r_a19339760a33a2ce135df3d6ff4a6e4e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_horizontal_coordinates.html">HorizontalCoordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19339760a33a2ce135df3d6ff4a6e4e7">EquatorialToHorizontal</a> (double ra, double dec)</td></tr>
 <tr class="memdesc:a19339760a33a2ce135df3d6ff4a6e4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given equatorial coordinates into horizontal coordinates.  <br /></td></tr>
 <tr class="separator:a19339760a33a2ce135df3d6ff4a6e4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a531ab7be7ee0ebb3b775ec1d804bc7ad" id="r_a531ab7be7ee0ebb3b775ec1d804bc7ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a531ab7be7ee0ebb3b775ec1d804bc7ad">UpdateLst</a> (double jd)</td></tr>
-<tr class="memdesc:a531ab7be7ee0ebb3b775ec1d804bc7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the local sidereal time.  <br /></td></tr>
-<tr class="separator:a531ab7be7ee0ebb3b775ec1d804bc7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6345be6d7f98b1e08e05dc5c031e15bc" id="r_a6345be6d7f98b1e08e05dc5c031e15bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6345be6d7f98b1e08e05dc5c031e15bc">EarthFrameNormalizedMagneticField</a> () const</td></tr>
+<tr class="memdesc:a6345be6d7f98b1e08e05dc5c031e15bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the horizontal components of the normalized earth's magnetic field in the Earth's reference frame.  <br /></td></tr>
+<tr class="separator:a6345be6d7f98b1e08e05dc5c031e15bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e3b6994b977feae5e5566069d3aba0" id="r_a50e3b6994b977feae5e5566069d3aba0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50e3b6994b977feae5e5566069d3aba0">SetJulianDate</a> (double jd)</td></tr>
+<tr class="memdesc:a50e3b6994b977feae5e5566069d3aba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Julian date.  <br /></td></tr>
+<tr class="separator:a50e3b6994b977feae5e5566069d3aba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a020f633bf24389c153b031cc400baf5f" id="r_a020f633bf24389c153b031cc400baf5f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_astro_calculator.html">AstroCalculator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a020f633bf24389c153b031cc400baf5f">GetInstance</a> ()</td></tr>
-<tr class="memdesc:a020f633bf24389c153b031cc400baf5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the <a class="el" href="class_astro_calculator.html">AstroCalculator</a> class.  <br /></td></tr>
+<tr class="memdesc:a020f633bf24389c153b031cc400baf5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of the <a class="el" href="class_astro_calculator.html" title="A class that calculates the positions of celestial objects.">AstroCalculator</a> class.  <br /></td></tr>
 <tr class="separator:a020f633bf24389c153b031cc400baf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that calculates the positions of celestial objects. </p>
+<p>The class calculates the positions of celestial objects based on the observer's location and the current time. The observer's location is specified by the latitude and longitude, both in radians. The current time is specified by the Julian date, which is the number of days since the beginning of the Julian period, which started on January 1, 4713 BC.</p>
+<p>The class is a singleton class. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6345be6d7f98b1e08e05dc5c031e15bc" name="a6345be6d7f98b1e08e05dc5c031e15bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6345be6d7f98b1e08e05dc5c031e15bc">&#9670;&#160;</a></span>EarthFrameNormalizedMagneticField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> AstroCalculator::EarthFrameNormalizedMagneticField </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the horizontal components of the normalized earth's magnetic field in the Earth's reference frame. </p>
+<p>This function calculates the horizontal components of the Earth's magnetic field based on the observer's location and the current time, using the World Magnetic Model (WMM).</p>
+<p>The Earth's reference frame has the X-axis pointing east, the Y-axis pointing north, and the Z-axis pointing up.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_horizontal_coordinates.html" title="The horizontal coordinates of an object in the sky.">HorizontalCoordinates</a> The horizontal components of the Earth's magnetic field in the Earth's reference frame. </dd></dl>
+
+</div>
+</div>
 <a id="a19339760a33a2ce135df3d6ff4a6e4e7" name="a19339760a33a2ce135df3d6ff4a6e4e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19339760a33a2ce135df3d6ff4a6e4e7">&#9670;&#160;</a></span>EquatorialToHorizontal()</h2>
 
@@ -152,7 +186,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Converts the given equatorial coordinates into horizontal coordinates. </p>
-<p>Converts the given equatorial coordinates into horizontal coordinates. The results will change over time as the Earth rotates. Therefore, the <a class="el" href="#a531ab7be7ee0ebb3b775ec1d804bc7ad" title="Update the local sidereal time.">UpdateLst()</a> function should be called before calling this function.</p>
+<p>Converts the given equatorial coordinates into horizontal coordinates. The results will change over time as the Earth rotates. Therefore, the UpdateLst() function should be called before calling this function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ra</td><td>The right ascension angle in radians. </td></tr>
@@ -187,8 +221,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of the <a class="el" href="class_astro_calculator.html">AstroCalculator</a> class. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_astro_calculator.html">AstroCalculator</a>&amp; The singleton instance. </dd></dl>
+<p>Gets the singleton instance of the <a class="el" href="class_astro_calculator.html" title="A class that calculates the positions of celestial objects.">AstroCalculator</a> class. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_astro_calculator.html" title="A class that calculates the positions of celestial objects.">AstroCalculator</a>&amp; The singleton instance. </dd></dl>
 
 </div>
 </div>
@@ -212,7 +246,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Converts the given horizontal coordinates into equatorial coordinates. </p>
-<p>Converts the given horizontal coordinates into equatorial coordinates. The results will change over time as the Earth rotates. Therefore, the <a class="el" href="#a531ab7be7ee0ebb3b775ec1d804bc7ad" title="Update the local sidereal time.">UpdateLst()</a> function should be called before calling this function.</p>
+<p>Converts the given horizontal coordinates into equatorial coordinates. The results will change over time as the Earth rotates. Therefore, the UpdateLst() function should be called before calling this function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">azimuth</td><td>The azimuth angle in radians. </td></tr>
@@ -221,6 +255,31 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_equatorial_coordinates.html" title="The equatorial coordinates of an object in the sky.">EquatorialCoordinates</a> </dd></dl>
+
+</div>
+</div>
+<a id="a50e3b6994b977feae5e5566069d3aba0" name="a50e3b6994b977feae5e5566069d3aba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50e3b6994b977feae5e5566069d3aba0">&#9670;&#160;</a></span>SetJulianDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AstroCalculator::SetJulianDate </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>jd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the Julian date. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jd</td><td>The Julian date. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -243,37 +302,11 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the observer location. </p>
+<p>Sets the observer location. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">latitude</td><td>The observer's latitude in radians. </td></tr>
     <tr><td class="paramname">longitude</td><td>The observer's longitude in radians. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a531ab7be7ee0ebb3b775ec1d804bc7ad" name="a531ab7be7ee0ebb3b775ec1d804bc7ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a531ab7be7ee0ebb3b775ec1d804bc7ad">&#9670;&#160;</a></span>UpdateLst()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AstroCalculator::UpdateLst </td>
-          <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>jd</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update the local sidereal time. </p>
-<p>Update the local sidereal time based on the given Julian date. The Julian date is the number of days since the beginning of the Julian period, which started on January 1, 4713 BC. The Julian date is used in astronomy to avoid the complexities of the Gregorian calendar.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">jd</td><td>The Julian date. </td></tr>
   </table>
   </dd>
 </dl>

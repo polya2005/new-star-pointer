@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['movementcontroller_0',['MovementController',['../class_movement_controller.html',1,'']]],
-  ['moveto_1',['MoveTo',['../class_movement_controller.html#aadad235ae0cf94cd0072cad989b62b9a',1,'MovementController']]]
+  ['init_0',['Init',['../class_sensors.html#a66a7e65d6e041de576028f97b8379594',1,'Sensors']]],
+  ['is_5fvalid_1',['is_valid',['../struct_observer_location.html#a3b1f568c039cabfc3b3ba52caa7f85e9',1,'ObserverLocation']]]
 ];

@@ -4,6 +4,10 @@
 
 #include "MovementController.h"
 
+#define DEBUG
+
+#include <TempDebug.h>
+
 int32_t MovementController::AzimuthToSteps(double azimuth) {
   return static_cast<int32_t>(azimuth * steps_per_radian_az_);
 }
@@ -48,19 +52,27 @@ void MovementController::SetJogStepAngle(double angle) {
   jog_steps_al_ = AltitudeToSteps(angle);
 }
 
-void MovementController::JogEast() { az_->move(jog_steps_az_); }
+void MovementController::JogEast() {
+  az_->move(jog_steps_az_);
+  debugln("Jogging East");
+}
 
-void MovementController::JogWest() { az_->move(-jog_steps_az_); }
+void MovementController::JogWest() {
+  az_->move(-jog_steps_az_);
+  debugln("Jogging West");
+}
 
 void MovementController::JogUp() {
   if (al_->targetPosition() < HALF_PI) {
     al_->move(jog_steps_al_);
+    debugln("Jogging Up");
   }
 }
 
 void MovementController::JogDown() {
   if (al_->targetPosition() > 0) {
     al_->move(-jog_steps_al_);
+    debugln("Jogging Down");
   }
 }
 

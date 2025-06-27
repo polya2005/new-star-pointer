@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['getinstance_0',['GetInstance',['../class_astro_calculator.html#a020f633bf24389c153b031cc400baf5f',1,'AstroCalculator::GetInstance()'],['../class_movement_controller.html#aa7b869138bc30e5f1509bf7bcd38b1d9',1,'MovementController::GetInstance()']]]
+  ['earthframenormalizedmagneticfield_0',['EarthFrameNormalizedMagneticField',['../class_astro_calculator.html#a6345be6d7f98b1e08e05dc5c031e15bc',1,'AstroCalculator']]],
+  ['equatorialcoordinates_1',['EquatorialCoordinates',['../struct_equatorial_coordinates.html',1,'']]],
+  ['equatorialtohorizontal_2',['EquatorialToHorizontal',['../class_astro_calculator.html#a19339760a33a2ce135df3d6ff4a6e4e7',1,'AstroCalculator']]]
 ];

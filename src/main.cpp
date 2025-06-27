@@ -20,6 +20,8 @@
  * SOFTWARE.
  */
 
+#define DEBUG
+
 #include <Arduino.h>
 #include <AstroCalculator.h>
 #include <Datatypes.h>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_0',['Run',['../class_movement_controller.html#a08aa6d1ee74b03cf4365cd1a2e7df907',1,'MovementController']]]
+  ['init_0',['Init',['../class_sensors.html#a66a7e65d6e041de576028f97b8379594',1,'Sensors']]]
 ];

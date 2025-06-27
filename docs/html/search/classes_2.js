@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['horizontalcoordinates_0',['HorizontalCoordinates',['../struct_horizontal_coordinates.html',1,'']]]
+  ['devicecoordinates_0',['DeviceCoordinates',['../class_device_coordinates.html',1,'']]]
 ];

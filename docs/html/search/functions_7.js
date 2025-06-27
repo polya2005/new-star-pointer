@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['setcurrentposition_0',['SetCurrentPosition',['../class_movement_controller.html#ae8512ccea34cf77aaf2a8442e9e95751',1,'MovementController']]],
-  ['setjogstepangle_1',['SetJogStepAngle',['../class_movement_controller.html#a10c95de1a1b6e43cbc33a9244274bb27',1,'MovementController']]],
-  ['setobserverlocation_2',['SetObserverLocation',['../class_astro_calculator.html#a89e79c1cd3d1df860d9d3a8845e32cae',1,'AstroCalculator']]],
-  ['stop_3',['Stop',['../class_movement_controller.html#a19619b0ababc86230c0df3132c1e7ae9',1,'MovementController']]]
+  ['jogdown_0',['JogDown',['../class_movement_controller.html#a4559923a116e814743987cc3caf5a6b4',1,'MovementController']]],
+  ['jogeast_1',['JogEast',['../class_movement_controller.html#a481dd74ccb749400b812eee54eb51dd3',1,'MovementController']]],
+  ['jogup_2',['JogUp',['../class_movement_controller.html#a72b14a9ee84907e65fdc8e31f8b98293',1,'MovementController']]],
+  ['jogwest_3',['JogWest',['../class_movement_controller.html#aa7328ee5f2d6578b62b214c3b3ea1d2a',1,'MovementController']]]
 ];

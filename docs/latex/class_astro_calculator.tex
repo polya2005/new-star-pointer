@@ -1,24 +1,59 @@
 \doxysection{Astro\+Calculator Class Reference}
 \hypertarget{class_astro_calculator}{}\label{class_astro_calculator}\index{AstroCalculator@{AstroCalculator}}
+
+
+A class that calculates the positions of celestial objects.  
+
+
+
+
+{\ttfamily \#include $<$Astro\+Calculator.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_astro_calculator_a89e79c1cd3d1df860d9d3a8845e32cae}{Set\+Observer\+Location}} (double latitude, double longitude)
-\begin{DoxyCompactList}\small\item\em Set the observer location. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the observer location. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_equatorial_coordinates}{Equatorial\+Coordinates}} \mbox{\hyperlink{class_astro_calculator_a7bff1f48bdbc51f7054402befffa1b22}{Horizontal\+To\+Equatorial}} (double azimuth, double altitude)
 \begin{DoxyCompactList}\small\item\em Converts the given horizontal coordinates into equatorial coordinates. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_horizontal_coordinates}{Horizontal\+Coordinates}} \mbox{\hyperlink{class_astro_calculator_a19339760a33a2ce135df3d6ff4a6e4e7}{Equatorial\+To\+Horizontal}} (double ra, double dec)
 \begin{DoxyCompactList}\small\item\em Converts the given equatorial coordinates into horizontal coordinates. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst}} (double jd)
-\begin{DoxyCompactList}\small\item\em Update the local sidereal time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_vector3}{Vector3}} \mbox{\hyperlink{class_astro_calculator_a6345be6d7f98b1e08e05dc5c031e15bc}{Earth\+Frame\+Normalized\+Magnetic\+Field}} () const
+\begin{DoxyCompactList}\small\item\em Gets the horizontal components of the normalized earth\textquotesingle{}s magnetic field in the Earth\textquotesingle{}s reference frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_astro_calculator_a50e3b6994b977feae5e5566069d3aba0}{Set\+Julian\+Date}} (double jd)
+\begin{DoxyCompactList}\small\item\em Sets the Julian date. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{class_astro_calculator}{Astro\+Calculator}} \& \mbox{\hyperlink{class_astro_calculator_a020f633bf24389c153b031cc400baf5f}{Get\+Instance}} ()
-\begin{DoxyCompactList}\small\item\em Get the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class that calculates the positions of celestial objects. 
+
+The class calculates the positions of celestial objects based on the observer\textquotesingle{}s location and the current time. The observer\textquotesingle{}s location is specified by the latitude and longitude, both in radians. The current time is specified by the Julian date, which is the number of days since the beginning of the Julian period, which started on January 1, 4713 BC.
+
+The class is a singleton class. 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_astro_calculator_a6345be6d7f98b1e08e05dc5c031e15bc}\index{AstroCalculator@{AstroCalculator}!EarthFrameNormalizedMagneticField@{EarthFrameNormalizedMagneticField}}
+\index{EarthFrameNormalizedMagneticField@{EarthFrameNormalizedMagneticField}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{EarthFrameNormalizedMagneticField()}{EarthFrameNormalizedMagneticField()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a6345be6d7f98b1e08e05dc5c031e15bc} 
+\mbox{\hyperlink{class_vector3}{Vector3}} Astro\+Calculator\+::\+Earth\+Frame\+Normalized\+Magnetic\+Field (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the horizontal components of the normalized earth\textquotesingle{}s magnetic field in the Earth\textquotesingle{}s reference frame. 
+
+This function calculates the horizontal components of the Earth\textquotesingle{}s magnetic field based on the observer\textquotesingle{}s location and the current time, using the World Magnetic Model (WMM).
+
+The Earth\textquotesingle{}s reference frame has the X-\/axis pointing east, the Y-\/axis pointing north, and the Z-\/axis pointing up.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_horizontal_coordinates}{Horizontal\+Coordinates} The horizontal components of the Earth\textquotesingle{}s magnetic field in the Earth\textquotesingle{}s reference frame. 
+\end{DoxyReturn}
 \Hypertarget{class_astro_calculator_a19339760a33a2ce135df3d6ff4a6e4e7}\index{AstroCalculator@{AstroCalculator}!EquatorialToHorizontal@{EquatorialToHorizontal}}
 \index{EquatorialToHorizontal@{EquatorialToHorizontal}!AstroCalculator@{AstroCalculator}}
 \doxysubsubsection{\texorpdfstring{EquatorialToHorizontal()}{EquatorialToHorizontal()}}
@@ -29,7 +64,7 @@ static \mbox{\hyperlink{class_astro_calculator}{Astro\+Calculator}} \& \mbox{\hy
 
 Converts the given equatorial coordinates into horizontal coordinates. 
 
-Converts the given equatorial coordinates into horizontal coordinates. The results will change over time as the Earth rotates. Therefore, the \doxylink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst()} function should be called before calling this function.
+Converts the given equatorial coordinates into horizontal coordinates. The results will change over time as the Earth rotates. Therefore, the Update\+Lst() function should be called before calling this function.
 
 
 \begin{DoxyParams}{Parameters}
@@ -49,7 +84,7 @@ Converts the given equatorial coordinates into horizontal coordinates. The resul
 
 
 
-Get the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. 
+Gets the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calculator} class. 
 
 \begin{DoxyReturn}{Returns}
 \doxylink{class_astro_calculator}{Astro\+Calculator}\& The singleton instance. 
@@ -64,7 +99,7 @@ Get the singleton instance of the \doxylink{class_astro_calculator}{Astro\+Calcu
 
 Converts the given horizontal coordinates into equatorial coordinates. 
 
-Converts the given horizontal coordinates into equatorial coordinates. The results will change over time as the Earth rotates. Therefore, the \doxylink{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}{Update\+Lst()} function should be called before calling this function.
+Converts the given horizontal coordinates into equatorial coordinates. The results will change over time as the Earth rotates. Therefore, the Update\+Lst() function should be called before calling this function.
 
 
 \begin{DoxyParams}{Parameters}
@@ -76,6 +111,21 @@ Converts the given horizontal coordinates into equatorial coordinates. The resul
 \begin{DoxyReturn}{Returns}
 \doxylink{struct_equatorial_coordinates}{Equatorial\+Coordinates} 
 \end{DoxyReturn}
+\Hypertarget{class_astro_calculator_a50e3b6994b977feae5e5566069d3aba0}\index{AstroCalculator@{AstroCalculator}!SetJulianDate@{SetJulianDate}}
+\index{SetJulianDate@{SetJulianDate}!AstroCalculator@{AstroCalculator}}
+\doxysubsubsection{\texorpdfstring{SetJulianDate()}{SetJulianDate()}}
+{\footnotesize\ttfamily \label{class_astro_calculator_a50e3b6994b977feae5e5566069d3aba0} 
+void Astro\+Calculator\+::\+Set\+Julian\+Date (\begin{DoxyParamCaption}\item[{double}]{jd}{}\end{DoxyParamCaption})}
+
+
+
+Sets the Julian date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jd} & The Julian date. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_astro_calculator_a89e79c1cd3d1df860d9d3a8845e32cae}\index{AstroCalculator@{AstroCalculator}!SetObserverLocation@{SetObserverLocation}}
 \index{SetObserverLocation@{SetObserverLocation}!AstroCalculator@{AstroCalculator}}
 \doxysubsubsection{\texorpdfstring{SetObserverLocation()}{SetObserverLocation()}}
@@ -84,30 +134,13 @@ void Astro\+Calculator\+::\+Set\+Observer\+Location (\begin{DoxyParamCaption}\it
 
 
 
-Set the observer location. 
+Sets the observer location. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em latitude} & The observer\textquotesingle{}s latitude in radians. \\
 \hline
 {\em longitude} & The observer\textquotesingle{}s longitude in radians. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad}\index{AstroCalculator@{AstroCalculator}!UpdateLst@{UpdateLst}}
-\index{UpdateLst@{UpdateLst}!AstroCalculator@{AstroCalculator}}
-\doxysubsubsection{\texorpdfstring{UpdateLst()}{UpdateLst()}}
-{\footnotesize\ttfamily \label{class_astro_calculator_a531ab7be7ee0ebb3b775ec1d804bc7ad} 
-void Astro\+Calculator\+::\+Update\+Lst (\begin{DoxyParamCaption}\item[{double}]{jd}{}\end{DoxyParamCaption})}
-
-
-
-Update the local sidereal time. 
-
-Update the local sidereal time based on the given Julian date. The Julian date is the number of days since the beginning of the Julian period, which started on January 1, 4713 BC. The Julian date is used in astronomy to avoid the complexities of the Gregorian calendar.
-
-
-\begin{DoxyParams}{Parameters}
-{\em jd} & The Julian date. \\
 \hline
 \end{DoxyParams}
 

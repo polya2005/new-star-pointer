@@ -5,50 +5,8 @@
 #ifndef LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
 #define LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_
 
-/**
- * @brief The horizontal coordinates of an object in the sky.
- */
-typedef struct {
-  /**
-   * @brief The azimuth angle in radians.
-   *
-   * The azimuth angle is the angle between the object and the north direction,
-   * measured clockwise, that is, 0 is the north, PI/2 is the east, PI is the
-   * south, and 3*PI/2 is the west.
-   */
-  double azimuth;
-
-  /**
-   * @brief The altitude angle in radians.
-   *
-   * The altitude angle is the angle between the object and the horizon, that
-   * is, 0 is the horizon, PI/2 is the zenith, and -PI/2 is the nadir.
-   */
-  double altitude;
-} HorizontalCoordinates;
-
-/**
- * @brief The equatorial coordinates of an object in the sky.
- */
-typedef struct {
-  /**
-   * @brief The right ascension angle in radians.
-   *
-   * The right ascension angle is the angle between the object and the vernal
-   * equinox, measured eastward. It is more commonly expressed in hours,
-   * minutes, and seconds, but here we use radians.
-   */
-  double ra;
-
-  /**
-   * @brief The declination angle in radians.
-   *
-   * The declination angle is the angle between the object and the celestial
-   * equator, measured northward, that is, 0 is the celestial equator, PI/2 is
-   * the north celestial pole, and -PI/2 is the south celestial pole.
-   */
-  double dec;
-} EquatorialCoordinates;
+#include "Datatypes.h"
+#include "Vectors.h"
 
 /**
  * @brief A class that calculates the positions of celestial objects.
@@ -76,6 +34,14 @@ class AstroCalculator {
    */
   double longitude_;
   /**
+   * @brief sin_longitude_ The sine of the observer's longitude.
+   */
+  double sin_longitude_;
+  /**
+   * @brief cos_longitude_ The cosine of the observer's longitude.
+   */
+  double cos_longitude_;
+  /**
    * @brief The local sidereal time in radians.
    *
    * The local sidereal time is defined as the sum of the right ascension and
@@ -84,11 +50,24 @@ class AstroCalculator {
    * should not be confused with the local mean time, which is the time measured
    * by a clock.
    */
-  double lst_;  // in radians
+  double lst_;           // in radians
+  double decimal_year_;  // in decimal years
 
   AstroCalculator() {}
   AstroCalculator(const AstroCalculator& other) = delete;
   void operator=(const AstroCalculator& other) = delete;
+
+  /**
+   * @brief Updates the local sidereal time.
+   *
+   * Updates the local sidereal time based on the given Julian date. The Julian
+   * date is the number of days since the beginning of the Julian period, which
+   * started on January 1, 4713 BC. The Julian date is used in astronomy to
+   * avoid the complexities of the Gregorian calendar.
+   *
+   * @param jd The Julian date.
+   */
+  void UpdateLst(double jd);
 
  public:
   /**
@@ -135,16 +114,27 @@ class AstroCalculator {
   HorizontalCoordinates EquatorialToHorizontal(double ra, double dec);
 
   /**
-   * @brief Updates the local sidereal time.
+   * @brief Gets the horizontal components of the normalized earth's magnetic
+   * field in the Earth's reference frame.
    *
-   * Updates the local sidereal time based on the given Julian date. The Julian
-   * date is the number of days since the beginning of the Julian period, which
-   * started on January 1, 4713 BC. The Julian date is used in astronomy to
-   * avoid the complexities of the Gregorian calendar.
+   * This function calculates the horizontal components of the Earth's
+   * magnetic field based on the observer's location and the current time,
+   * using the World Magnetic Model (WMM).
+   *
+   * The Earth's reference frame has the X-axis pointing east, the Y-axis
+   * pointing north, and the Z-axis pointing up.
+   *
+   * @return HorizontalCoordinates The horizontal components of the Earth's
+   * magnetic field in the Earth's reference frame.
+   */
+  Vector3 EarthFrameNormalizedMagneticField() const;
+
+  /**
+   * @brief Sets the Julian date.
    *
    * @param jd The Julian date.
    */
-  void UpdateLst(double jd);
+  void SetJulianDate(double jd);
 };
 
 #endif  // LIB_ASTROCALCULATOR_ASTROCALCULATOR_H_

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['moveto_0',['MoveTo',['../class_movement_controller.html#aadad235ae0cf94cd0072cad989b62b9a',1,'MovementController']]]
+  ['horizontaltoequatorial_0',['HorizontalToEquatorial',['../class_astro_calculator.html#a7bff1f48bdbc51f7054402befffa1b22',1,'AstroCalculator']]]
 ];

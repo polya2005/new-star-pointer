@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['ra_0',['ra',['../struct_equatorial_coordinates.html#a4aacc7079a73866cf46fad5753176dcf',1,'EquatorialCoordinates']]],
-  ['run_1',['Run',['../class_movement_controller.html#a08aa6d1ee74b03cf4365cd1a2e7df907',1,'MovementController']]]
+  ['jogdown_0',['JogDown',['../class_movement_controller.html#a4559923a116e814743987cc3caf5a6b4',1,'MovementController']]],
+  ['jogeast_1',['JogEast',['../class_movement_controller.html#a481dd74ccb749400b812eee54eb51dd3',1,'MovementController']]],
+  ['jogup_2',['JogUp',['../class_movement_controller.html#a72b14a9ee84907e65fdc8e31f8b98293',1,'MovementController']]],
+  ['jogwest_3',['JogWest',['../class_movement_controller.html#aa7328ee5f2d6578b62b214c3b3ea1d2a',1,'MovementController']]]
 ];
