@@ -53,30 +53,49 @@ class StarDatabase {
   double ball_best_sim_ = -2.0;
   int16_t ball_root_ = -1;  // Root index of the ball tree
 
-  void BallTreeSearch(File ball_tree_file, int16_t node_index,
+  void BallTreeSearch(File& ball_tree_file, int16_t node_index,
                       const Vector3& query);
-
-  template <typename T>
-  static T ReadAtRecord(File& file, int16_t index) {
-    const int16_t old_position = file.position();
-    file.seek(index * sizeof(T), SeekSet);
-    T record;
-    if (file.read(reinterpret_cast<uint8_t*>(&record), sizeof(T)) !=
-        sizeof(T)) {
-      debugln(F("Failed to read record from file"));
-      return T();  // Return default value if read fails
-    }
-    file.seek(old_position, SeekSet);  // Restore the file position
-    return record;
-  }
 
   struct BallNode {
     Vector3 center;                 // Center of the ball
     double radius;                  // Radius of the ball
     int16_t left = -1, right = -1;  // Indices of left and right child nodes
-    int16_t index = -1;    // Index of the star in the database (for leaf nodes)
-    bool is_leaf = false;  // True if this node is a leaf node
+    int16_t index = -1;  // Index of the star in the database (for leaf nodes)
+    uint8_t is_leaf = false;  // True if this node is a leaf node
+    void print() const {
+      debugln(F("BallNode:"));
+      debug(F("  Center: "));
+      debug(center.x);
+      debug(F(", "));
+      debug(center.y);
+      debug(F(", "));
+      debugln(center.z);
+      debug(F("  Radius: "));
+      debugln(radius);
+      debug(F("  Left: "));
+      debugln(left);
+      debug(F("  Right: "));
+      debugln(right);
+      debug(F("  Index: "));
+      debugln(index);
+      debug(F("  Is Leaf: "));
+      debugln(is_leaf);
+    }
   };
+
+  template <typename T>
+  static T ReadAtRecord(File& file, int16_t index) {
+    T record;
+    const size_t record_position =
+        static_cast<size_t>(index) * sizeof(record);
+    file.seek(record_position, SeekSet);  // Move to the record position
+    if (file.read(reinterpret_cast<uint8_t*>(&record), sizeof(T)) !=
+        sizeof(T)) {
+      debugln(F("Failed to read record from file"));
+      return T();  // Return default value if read fails
+    }
+    return record;
+  }
 
  public:
   /**
@@ -107,6 +126,8 @@ class StarDatabase {
    * error code.
    */
   int16_t SearchByPosition(double ra, double dec);
+
+  int16_t GetBallTreeRoot() const { return ball_root_; }
 };
 
 #endif  // LIB_STARDATABASE_STARDATABASE_H_
