@@ -4,7 +4,6 @@
 
 #include "StarDatabase.h"
 
-
 #include <LittleFS.h>
 #include <TempDebug.h>
 #include <math.h>
@@ -35,9 +34,10 @@ void StarDatabase::Init() {
     debugln("Failed to read ball tree root index");
     while (true) continue;  // Halt the program if reading fails
   }
+  ball_tree_file.close();
 }
 
-void StarDatabase::BallTreeSearch(File ball_tree_file, int16_t node_index,
+void StarDatabase::BallTreeSearch(File& ball_tree_file, int16_t node_index,
                                   const Vector3& query) {
   BallNode node = ReadAtRecord<BallNode>(ball_tree_file, node_index);
   if (node.index == 0 && node.left == 0 && node.right == 0) {
