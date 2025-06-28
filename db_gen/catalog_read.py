@@ -43,7 +43,7 @@ class DatabaseRecord:
         """
         Packs the record into a binary format.
         """
-        binary_format = Struct("< B 23s 23s 23s 23s 23s  20s d d f 18s f")
+        binary_format = Struct("B 23s 23s 23s 23s 23s  20s d d f 18s f")
         return binary_format.pack(
             len(self.names) - self.names.count(""),
             *[name.encode("utf-8") for name in self.names],
