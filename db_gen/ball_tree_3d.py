@@ -28,6 +28,13 @@ class BallNode:
             self.is_leaf
         )
 
+    def __repr__(self):
+        return (
+            f"BallNode(center={self.center}, radius={self.radius}, "
+            f"left={self.left}, right={self.right}, index={self.index}, "
+            f"is_leaf={self.is_leaf})"
+        )
+
 
 class BallTree3D:
     def __init__(self, points):
