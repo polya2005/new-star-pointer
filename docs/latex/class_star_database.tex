@@ -1,0 +1,101 @@
+\doxysection{Star\+Database Class Reference}
+\hypertarget{class_star_database}{}\label{class_star_database}\index{StarDatabase@{StarDatabase}}
+
+
+A class that provides access to a database of stars.  
+
+
+
+
+{\ttfamily \#include $<$Star\+Database.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_star_database_ace7b5e689e1c3868c46ff888fc2dd172}\label{class_star_database_ace7b5e689e1c3868c46ff888fc2dd172} 
+void {\bfseries Init} ()
+\begin{DoxyCompactList}\small\item\em Initializes the star database. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_star_database_a75b4c8c5e8a67ed1d5604d3f42251fa4}{Search\+By\+Position}} (double ra, double dec)
+\begin{DoxyCompactList}\small\item\em Searches for a star by its position in the sky. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_star_database_entry}{Star\+Database\+Entry}} \mbox{\hyperlink{class_star_database_a47f27ea4e0fa5461cbe3d078b8ca29cd}{Read\+Star\+Entry}} (int16\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Reads a star entry from the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_star_database}{Star\+Database}} \& \mbox{\hyperlink{class_star_database_aca63f5177560b3e943f99a2f46d42e96}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \doxylink{class_star_database}{Star\+Database} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that provides access to a database of stars. 
+
+The class provides functions to search for stars by name, right ascension, and declination. It uses a ball tree data structure to efficiently search for stars within a certain radius, and it uses a trie data structure to search for stars by name.
+
+The database is stored on the flash memory of the device as binary files\+:
+\begin{DoxyItemize}
+\item {\ttfamily db.\+bin}\+: Contains the star database entries.
+\item {\ttfamily ball\+\_\+tree.\+bin}\+: Contains the ball tree nodes.
+\end{DoxyItemize}
+
+The class is a singleton class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_star_database_aca63f5177560b3e943f99a2f46d42e96}\index{StarDatabase@{StarDatabase}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!StarDatabase@{StarDatabase}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \label{class_star_database_aca63f5177560b3e943f99a2f46d42e96} 
+\mbox{\hyperlink{class_star_database}{Star\+Database}} \& Star\+Database\+::\+Get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the singleton instance of the \doxylink{class_star_database}{Star\+Database} class. 
+
+This function returns a reference to the singleton instance of the \doxylink{class_star_database}{Star\+Database} class. If the instance has not been created yet, it will be created on the first call to this function.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_star_database}{Star\+Database}\& A reference to the singleton instance of the \doxylink{class_star_database}{Star\+Database} class.
+\end{DoxyReturn}
+Copyright (c) 2025 Boonyakorn Thanpanit \Hypertarget{class_star_database_a47f27ea4e0fa5461cbe3d078b8ca29cd}\index{StarDatabase@{StarDatabase}!ReadStarEntry@{ReadStarEntry}}
+\index{ReadStarEntry@{ReadStarEntry}!StarDatabase@{StarDatabase}}
+\doxysubsubsection{\texorpdfstring{ReadStarEntry()}{ReadStarEntry()}}
+{\footnotesize\ttfamily \label{class_star_database_a47f27ea4e0fa5461cbe3d078b8ca29cd} 
+\mbox{\hyperlink{struct_star_database_entry}{Star\+Database\+Entry}} Star\+Database\+::\+Read\+Star\+Entry (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Reads a star entry from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the star entry to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_star_database_entry}{Star\+Database\+Entry} The star entry at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{class_star_database_a75b4c8c5e8a67ed1d5604d3f42251fa4}\index{StarDatabase@{StarDatabase}!SearchByPosition@{SearchByPosition}}
+\index{SearchByPosition@{SearchByPosition}!StarDatabase@{StarDatabase}}
+\doxysubsubsection{\texorpdfstring{SearchByPosition()}{SearchByPosition()}}
+{\footnotesize\ttfamily \label{class_star_database_a75b4c8c5e8a67ed1d5604d3f42251fa4} 
+int16\+\_\+t Star\+Database\+::\+Search\+By\+Position (\begin{DoxyParamCaption}\item[{double}]{ra}{, }\item[{double}]{dec}{}\end{DoxyParamCaption})}
+
+
+
+Searches for a star by its position in the sky. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ra} & Right Ascension of the star in radians. \\
+\hline
+{\em dec} & Declination of the star in radians.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t The index of the closest star in the database or a negative error code. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Star\+Database/Star\+Database.\+h\item 
+Star\+Database/Star\+Database.\+cpp\end{DoxyCompactItemize}

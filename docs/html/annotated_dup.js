@@ -9,5 +9,7 @@ var annotated_dup =
     [ "MovementController", "class_movement_controller.html", "class_movement_controller" ],
     [ "ObserverLocation", "struct_observer_location.html", "struct_observer_location" ],
     [ "Sensors", "class_sensors.html", "class_sensors" ],
+    [ "StarDatabase", "class_star_database.html", "class_star_database" ],
+    [ "StarDatabaseEntry", "struct_star_database_entry.html", null ],
     [ "Vector3", "class_vector3.html", "class_vector3" ]
 ];
