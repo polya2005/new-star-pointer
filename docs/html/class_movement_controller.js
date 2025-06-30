@@ -2,6 +2,8 @@ var class_movement_controller =
 [
     [ "AttachAltitudeMotor", "class_movement_controller.html#aff6b26162894572edab0d33610a77a59", null ],
     [ "AttachAzimuthMotor", "class_movement_controller.html#aa7bbacff63f2b4aa150d31f1223334ac", null ],
+    [ "GetCurrentAltitude", "class_movement_controller.html#a5899267f55af0acc22ea992f82af57bf", null ],
+    [ "GetCurrentAzimuth", "class_movement_controller.html#a4bdc08e98f574e8f64727e59e976d298", null ],
     [ "JogDown", "class_movement_controller.html#a4559923a116e814743987cc3caf5a6b4", null ],
     [ "JogEast", "class_movement_controller.html#a481dd74ccb749400b812eee54eb51dd3", null ],
     [ "JogUp", "class_movement_controller.html#a72b14a9ee84907e65fdc8e31f8b98293", null ],

@@ -9,19 +9,21 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_TEMPDEBUG\_TEMPDEBUG\_H\_}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_TEMPDEBUG\_TEMPDEBUG\_H\_}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifdef\ DEBUG}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ debug1(x)\ Serial.print(x)}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ debugln1(x)\ Serial.println(x)}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ debug2(x,\ y)\ Serial.print(x,\ y)}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ debugln2(x,\ y)\ Serial.println(x,\ y)}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ GET\_MACRO(\_1,\ \_2,\ NAME,\ ...)\ NAME}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ debug(...)\ GET\_MACRO(\_\_VA\_ARGS\_\_,\ debug2,\ debug1)(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ debugln(...)\ GET\_MACRO(\_\_VA\_ARGS\_\_,\ debugln2,\ debugln1)(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ debug(...)}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ debugln(...)}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_TEMPDEBUG\_TEMPDEBUG\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ DEBUG\ \ }\textcolor{comment}{//\ Enable\ debug\ mode}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ DEBUG}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ debug1(x)\ Serial.print(x)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ debugln1(x)\ Serial.println(x)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ debug2(x,\ y)\ Serial.print(x,\ y)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ debugln2(x,\ y)\ Serial.println(x,\ y)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ GET\_MACRO(\_1,\ \_2,\ NAME,\ ...)\ NAME}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ debug(...)\ GET\_MACRO(\_\_VA\_ARGS\_\_,\ debug2,\ debug1)(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ debugln(...)\ GET\_MACRO(\_\_VA\_ARGS\_\_,\ debugln2,\ debugln1)(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ debug(...)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ debugln(...)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_TEMPDEBUG\_TEMPDEBUG\_H\_}}
 
 \end{DoxyCode}

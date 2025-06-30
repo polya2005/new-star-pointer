@@ -20,6 +20,10 @@ bool \mbox{\hyperlink{class_movement_controller_aadad235ae0cf94cd0072cad989b62b9
 \begin{DoxyCompactList}\small\item\em Moves the pointer to the specified azimuth and altitude. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_movement_controller_ae8512ccea34cf77aaf2a8442e9e95751}{Set\+Current\+Position}} (double azimuth, double altitude)
 \begin{DoxyCompactList}\small\item\em Marks the current position as the specified azimuth and altitude. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_movement_controller_a4bdc08e98f574e8f64727e59e976d298}{Get\+Current\+Azimuth}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current azimuth in radians. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_movement_controller_a5899267f55af0acc22ea992f82af57bf}{Get\+Current\+Altitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current altitude in radians. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_movement_controller_a10c95de1a1b6e43cbc33a9244274bb27}{Set\+Jog\+Step\+Angle}} (double angle)
 \begin{DoxyCompactList}\small\item\em Sets the angle to move the motor in one jogging step. \end{DoxyCompactList}\item 
 \Hypertarget{class_movement_controller_a481dd74ccb749400b812eee54eb51dd3}\label{class_movement_controller_a481dd74ccb749400b812eee54eb51dd3} 
@@ -96,6 +100,32 @@ Specifies the step pin, dir pin, and the number of steps per radian east. A nega
 {\em steps\+\_\+per\+\_\+radian} & The number of steps per radian east. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_movement_controller_a5899267f55af0acc22ea992f82af57bf}\index{MovementController@{MovementController}!GetCurrentAltitude@{GetCurrentAltitude}}
+\index{GetCurrentAltitude@{GetCurrentAltitude}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{GetCurrentAltitude()}{GetCurrentAltitude()}}
+{\footnotesize\ttfamily \label{class_movement_controller_a5899267f55af0acc22ea992f82af57bf} 
+double Movement\+Controller\+::\+Get\+Current\+Altitude (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the current altitude in radians. 
+
+\begin{DoxyReturn}{Returns}
+double The current altitude in radians. 
+\end{DoxyReturn}
+\Hypertarget{class_movement_controller_a4bdc08e98f574e8f64727e59e976d298}\index{MovementController@{MovementController}!GetCurrentAzimuth@{GetCurrentAzimuth}}
+\index{GetCurrentAzimuth@{GetCurrentAzimuth}!MovementController@{MovementController}}
+\doxysubsubsection{\texorpdfstring{GetCurrentAzimuth()}{GetCurrentAzimuth()}}
+{\footnotesize\ttfamily \label{class_movement_controller_a4bdc08e98f574e8f64727e59e976d298} 
+double Movement\+Controller\+::\+Get\+Current\+Azimuth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the current azimuth in radians. 
+
+\begin{DoxyReturn}{Returns}
+double The current azimuth in radians. 
+\end{DoxyReturn}
 \Hypertarget{class_movement_controller_aa7b869138bc30e5f1509bf7bcd38b1d9}\index{MovementController@{MovementController}!GetInstance@{GetInstance}}
 \index{GetInstance@{GetInstance}!MovementController@{MovementController}}
 \doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}

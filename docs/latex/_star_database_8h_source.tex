@@ -1,0 +1,103 @@
+\doxysection{Star\+Database.\+h}
+\hypertarget{_star_database_8h_source}{}\label{_star_database_8h_source}\index{StarDatabase/StarDatabase.h@{StarDatabase/StarDatabase.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LIB\_STARDATABASE\_STARDATABASE\_H\_}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LIB\_STARDATABASE\_STARDATABASE\_H\_}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <LittleFS.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <TempDebug.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <Vectors.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ STARDATABASE\_FAIL\_TO\_OPEN\_FILE\ -\/1}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ STARDATABASE\_FAIL\_TO\_READ\_FILE\ -\/2}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_star_database_entry}{StarDatabaseEntry}}\ \{}
+\DoxyCodeLine{00017\ \ \ uint8\_t\ n\_names;\ \ \textcolor{comment}{//\ Number\ of\ names\ (up\ to\ 5)}}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{char}\ names[5]}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ [23];\ \ \textcolor{comment}{//\ Names\ of\ the\ star,\ up\ to\ 5\ names,\ each\ up\ to\ 22\ characters}}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{char}\ constellation[20];\ \ \textcolor{comment}{//\ Constellation\ name,\ up\ to\ 19\ characters}}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{double}\ ra;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ Ascension\ in\ radians}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ dec;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Declination\ in\ radians}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{float}\ mag;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Magnitude\ of\ the\ star}}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{char}\ spectral\_type[18];}
+\DoxyCodeLine{00025\ \ \ uint8\_t\ is\_invalid\ =\ 1;\ \ \textcolor{comment}{//\ 0\ if\ valid,\ 1\ if\ invalid}}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{float}\ b\_v;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ B-\/V\ color\ index}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }StarDatabase\ \{}
+\DoxyCodeLine{00044\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ StarDatabase()\ \{\}}
+\DoxyCodeLine{00046\ \ \ StarDatabase(\textcolor{keyword}{const}\ StarDatabase\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ operator=(\textcolor{keyword}{const}\ StarDatabase\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ kStarsFileName\_\ =\ \textcolor{stringliteral}{"{}/db.bin"{}};\ \ \textcolor{comment}{//\ File\ name\ for\ the\ star\ database}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ kBallTreeFileName\_\ =}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/ball\_tree.bin"{}};\ \ \textcolor{comment}{//\ File\ name\ for\ the\ ball\ tree}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ int16\_t\ ball\_best\_index\_\ =\ -\/1;}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{double}\ ball\_best\_sim\_\ =\ -\/2.0;}
+\DoxyCodeLine{00055\ \ \ int16\_t\ ball\_root\_\ =\ -\/1;\ \ \textcolor{comment}{//\ Root\ index\ of\ the\ ball\ tree}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ BallTreeSearch(File\&\ ball\_tree\_file,\ int16\_t\ node\_index,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector3}{Vector3}}\&\ query);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{struct\ }BallNode\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_vector3}{Vector3}}\ center;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Center\ of\ the\ ball}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{double}\ radius;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Radius\ of\ the\ ball}}
+\DoxyCodeLine{00063\ \ \ \ \ int16\_t\ left\ =\ -\/1,\ right\ =\ -\/1;\ \ \textcolor{comment}{//\ Indices\ of\ left\ and\ right\ child\ nodes}}
+\DoxyCodeLine{00064\ \ \ \ \ int16\_t\ index\ =\ -\/1;\ \ \textcolor{comment}{//\ Index\ of\ the\ star\ in\ the\ database\ (for\ leaf\ nodes)}}
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ is\_leaf\ =\ \textcolor{keyword}{false};\ \ \textcolor{comment}{//\ True\ if\ this\ node\ is\ a\ leaf\ node}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ print()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ debugln(F(\textcolor{stringliteral}{"{}BallNode:"{}}));}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Center:\ "{}}));}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ debug(center.\mbox{\hyperlink{class_vector3_a60aa84ebc037dec9faba617f8ddb231d}{x}});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{},\ "{}}));}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ debug(center.\mbox{\hyperlink{class_vector3_ae4965693beffdb6069e0618222cae459}{y}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{},\ "{}}));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ debugln(center.\mbox{\hyperlink{class_vector3_aa5f4108b2839a110eeaec8606780eaff}{z}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Radius:\ "{}}));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ debugln(radius);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Left:\ "{}}));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ debugln(left);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Right:\ "{}}));}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ debugln(right);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Index:\ "{}}));}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ debugln(index);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ debug(F(\textcolor{stringliteral}{"{}\ \ Is\ Leaf:\ "{}}));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ debugln(is\_leaf);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{static}\ T\ ReadAtRecord(File\&\ file,\ int16\_t\ index)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ T\ record;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ record\_position\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(index)\ *\ \textcolor{keyword}{sizeof}(record);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.seek(record\_position,\ SeekSet))\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ debugln(F(\textcolor{stringliteral}{"{}Failed\ to\ set\ the\ read\ position"{}}));}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ T();\ \ \textcolor{comment}{//\ Return\ default\ value\ if\ seek\ fails}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (file.read(\textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&record),\ \textcolor{keyword}{sizeof}(T))\ !=}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(T))\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ debugln(F(\textcolor{stringliteral}{"{}Failed\ to\ read\ record\ from\ file"{}}));}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ T();\ \ \textcolor{comment}{//\ Return\ default\ value\ if\ read\ fails}}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ record;}
+\DoxyCodeLine{00101\ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{static}\ StarDatabase\&\ \mbox{\hyperlink{class_star_database_aca63f5177560b3e943f99a2f46d42e96}{GetInstance}}();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_star_database_ace7b5e689e1c3868c46ff888fc2dd172}{Init}}();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00131\ \ \ int16\_t\ \mbox{\hyperlink{class_star_database_a75b4c8c5e8a67ed1d5604d3f42251fa4}{SearchByPosition}}(\textcolor{keywordtype}{double}\ ra,\ \textcolor{keywordtype}{double}\ dec);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00139\ \ \ \mbox{\hyperlink{struct_star_database_entry}{StarDatabaseEntry}}\ \mbox{\hyperlink{class_star_database_a47f27ea4e0fa5461cbe3d078b8ca29cd}{ReadStarEntry}}(int16\_t\ index);}
+\DoxyCodeLine{00140\ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LIB\_STARDATABASE\_STARDATABASE\_H\_}}
+
+\end{DoxyCode}

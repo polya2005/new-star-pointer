@@ -43,7 +43,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_astro_calculator_8h_source.html"
+"_8___movement_controller_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
