@@ -126,6 +126,20 @@ class MovementController {
   void SetCurrentPosition(double azimuth, double altitude);
 
   /**
+   * @brief Gets the current azimuth in radians.
+   * 
+   * @return double The current azimuth in radians.
+   */
+  double GetCurrentAzimuth() const;
+
+  /**
+   * @brief Gets the current altitude in radians.
+   * 
+   * @return double The current altitude in radians.
+   */
+  double GetCurrentAltitude() const;
+
+  /**
    * @brief Sets the angle to move the motor in one jogging step.
    *
    * Specifies the approximate angle to move the motor in one jogging step in

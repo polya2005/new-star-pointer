@@ -47,6 +47,14 @@ void MovementController::SetCurrentPosition(double azimuth, double altitude) {
   al_->setCurrentPosition(AltitudeToSteps(altitude));
 }
 
+double MovementController::GetCurrentAzimuth() const {
+  return az_->currentPosition() / steps_per_radian_az_;
+}
+
+double MovementController::GetCurrentAltitude() const {
+  return al_->currentPosition() / steps_per_radian_al_;
+}
+
 void MovementController::SetJogStepAngle(double angle) {
   jog_steps_az_ = AzimuthToSteps(angle);
   jog_steps_al_ = AltitudeToSteps(angle);
