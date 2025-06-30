@@ -86,3 +86,10 @@ int16_t StarDatabase::SearchByPosition(double ra, double dec) {
   return ball_best_index_ >= 0 ? ball_best_index_
                                : STARDATABASE_FAIL_TO_READ_FILE;
 }
+
+StarDatabaseEntry StarDatabase::ReadStarEntry(int16_t index) {
+  File stars_file = LittleFS.open(kStarsFileName_, "r");
+  StarDatabaseEntry record = ReadAtRecord<StarDatabaseEntry>(stars_file, index);
+  stars_file.close();
+  return record;
+}
