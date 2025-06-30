@@ -127,7 +127,6 @@ class StarDatabase {
    */
   int16_t SearchByPosition(double ra, double dec);
 
-  int16_t GetBallTreeRoot() const { return ball_root_; }
 };
 
 #endif  // LIB_STARDATABASE_STARDATABASE_H_
