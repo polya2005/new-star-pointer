@@ -3,7 +3,7 @@ import numpy as np
 
 
 class BallNode:
-    binary_format = Struct("3d d h h h ? B")
+    binary_format = Struct("3d d h h h ? x")
 
     def __init__(
         self, center, radius, left=None, right=None, index=None, is_leaf=False
@@ -25,8 +25,7 @@ class BallNode:
             self.left or -1,
             self.right or -1,
             self.index or -1,
-            self.is_leaf,
-            0  # padding byte for alignment
+            self.is_leaf
         )
 
     def __repr__(self):

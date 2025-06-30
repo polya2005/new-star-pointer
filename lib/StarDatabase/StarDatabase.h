@@ -22,7 +22,8 @@ struct StarDatabaseEntry {
   double dec;              // Declination in radians
   float mag;               // Magnitude of the star
   char spectral_type[18];
-  float b_v;  // B-V color index
+  uint8_t is_invalid = 1;  // 0 if valid, 1 if invalid
+  float b_v;               // B-V color index
 };
 
 /**
@@ -86,9 +87,11 @@ class StarDatabase {
   template <typename T>
   static T ReadAtRecord(File& file, int16_t index) {
     T record;
-    const size_t record_position =
-        static_cast<size_t>(index) * sizeof(record);
-    file.seek(record_position, SeekSet);  // Move to the record position
+    const size_t record_position = static_cast<size_t>(index) * sizeof(record);
+    if (!file.seek(record_position, SeekSet)) {
+      debugln(F("Failed to set the read position"));
+      return T();  // Return default value if seek fails
+    }
     if (file.read(reinterpret_cast<uint8_t*>(&record), sizeof(T)) !=
         sizeof(T)) {
       debugln(F("Failed to read record from file"));
@@ -122,12 +125,18 @@ class StarDatabase {
    * @param ra Right Ascension of the star in radians.
    * @param dec Declination of the star in radians.
    *
-   * @return int16_t The index of the closest star in the database or a negative
-   * error code.
+   * @return int16_t The index of the closest star in the database or a
+   * negative error code.
    */
   int16_t SearchByPosition(double ra, double dec);
 
-  int16_t GetBallTreeRoot() const { return ball_root_; }
+  /**
+   * @brief Reads a star entry from the database.
+   *
+   * @param index The index of the star entry to read.
+   * @return StarDatabaseEntry The star entry at the specified index.
+   */
+  StarDatabaseEntry ReadStarEntry(int16_t index);
 };
 
 #endif  // LIB_STARDATABASE_STARDATABASE_H_
