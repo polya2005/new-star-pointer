@@ -23,6 +23,7 @@
 #include <Arduino.h>
 #include <AstroCalculator.h>
 #include <Datatypes.h>
+#include <DeviceCoordinates.h>
 #include <MovementController.h>
 #include <Sensors.h>
 #include <StarDatabase.h>
@@ -36,6 +37,46 @@ AstroCalculator& astroCalculator = AstroCalculator::GetInstance();
 MovementController& movementController = MovementController::GetInstance();
 Sensors& sensors = Sensors::GetInstance();
 StarDatabase& starDatabase = StarDatabase::GetInstance();
+
+static lv_obj_t* main_screen = nullptr;
+
+void setup_movement();
+void btnm_jog_value_changed_handler(lv_event_t* e);
+void back_to_main_screen(lv_event_t* e);
+
+void setup(void) {
+#ifdef DEBUG
+  Serial.begin(115200);
+  delay(1000);  // delay for the serial monitor to open
+#endif
+  // sensors.Init();
+  // ObserverLocation observer_location = sensors.ReadObserverLocation();
+  // astroCalculator.SetObserverLocation(observer_location.latitude,
+  //                                     observer_location.longitude);
+  // setup_movement();
+  debugln("Starting StarPointer Pico...");
+  starDatabase.Init();
+
+  // setup user interface
+  setup_screen();
+  main_screen = lv_screen_active();
+  lv_obj_t* tabview = lv_tabview_create(main_screen);
+  lv_obj_t* tab_goto = lv_tabview_add_tab(tabview, "Goto");
+  lv_obj_t* tab_identify = lv_tabview_add_tab(tabview, "Identify");
+
+  lv_obj_t* sample_info_screen =
+      create_star_info_screen(705, back_to_main_screen);
+  lv_scr_load(sample_info_screen);
+
+  populate_tab_identify(tab_identify, btnm_jog_value_changed_handler);
+}
+
+void loop(void) {
+  lv_tick_inc(10);  // Increment LVGL tick count
+  delay(10);
+
+  lv_task_handler();  // Process LVGL tasks
+}
 
 void setup_movement() {
   movementController.AttachAzimuthMotor(10, 11, 4000 / TWO_PI);
@@ -57,9 +98,33 @@ void btnm_jog_value_changed_handler(lv_event_t* e) {
       movementController.JogEast();
       break;
     case 4:  // OK
-      // Implement OK action if needed
+    {
       debugln("OK button pressed");
-      break;
+      DeviceCoordinates d_pointer_coords =
+          DeviceCoordinates(movementController.GetCurrentAzimuth(),
+                            movementController.GetCurrentAltitude());
+      HorizontalCoordinates h_pointer_coords =
+          d_pointer_coords.ToHorizontalCoordinates();
+      EquatorialCoordinates eq_pointer_coords =
+          astroCalculator.HorizontalToEquatorial(h_pointer_coords.azimuth,
+                                                 h_pointer_coords.altitude);
+      debugln(F("Pointer coordinates: "));
+      debug(F("RA: "));
+      debug(eq_pointer_coords.ra);
+      debug(F(", Dec: "));
+      debugln(eq_pointer_coords.dec);
+      int16_t star_index = starDatabase.SearchByPosition(eq_pointer_coords.ra,
+                                                         eq_pointer_coords.dec);
+      if (star_index >= 0) {
+        debug(F("Found star at index: "));
+        debugln(star_index);
+        lv_obj_t* screen =
+            create_star_info_screen(star_index, back_to_main_screen);
+        lv_scr_load(screen);
+      } else {
+        debugln(F("Error looking up star."));
+      }
+    } break;
     case 5:  // Right
       movementController.JogWest();
       break;
@@ -71,31 +136,11 @@ void btnm_jog_value_changed_handler(lv_event_t* e) {
   }
 }
 
-void setup(void) {
-#ifdef DEBUG
-  Serial.begin(115200);
-  delay(1000);  // delay for the serial monitor to open
-#endif
-  // sensors.Init();
-  // ObserverLocation observer_location = sensors.ReadObserverLocation();
-  // astroCalculator.SetObserverLocation(observer_location.latitude,
-  //                                     observer_location.longitude);
-  // setup_movement();
-  debugln("Starting StarPointer Pico...");
-  starDatabase.Init();
-
-  // setup user interface
-  setup_screen();
-  lv_obj_t* tabview = lv_tabview_create(lv_screen_active());
-  lv_obj_t* tab_goto = lv_tabview_add_tab(tabview, "Goto");
-  lv_obj_t* tab_identify = lv_tabview_add_tab(tabview, "Identify");
-
-  populate_tab_identify(tab_identify, btnm_jog_value_changed_handler);
-}
-
-void loop(void) {
-  lv_tick_inc(10);  // Increment LVGL tick count
-  delay(10);
-
-  lv_task_handler();  // Process LVGL tasks
+void back_to_main_screen(lv_event_t* e) {
+  lv_obj_t* btn = reinterpret_cast<lv_obj_t*>(lv_event_get_target(e));
+  lv_obj_t* screen = lv_obj_get_parent(btn);
+  if (screen != nullptr) {
+    lv_scr_load(main_screen);
+    lv_obj_del(screen);  // Delete the current screen
+  }
 }
