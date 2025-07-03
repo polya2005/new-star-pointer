@@ -8,7 +8,6 @@
 
 #include "ui.h"
 
-
 const char* make_ra_string(double ra) {
   // Convert right ascension from radians to hours
   double hours = ra * 12.0 / PI;
@@ -40,15 +39,17 @@ const char* make_dec_string(double dec) {
   return dec_string;
 }
 
-lv_obj_t* create_star_info_screen(int16_t star_index) {
+lv_obj_t* create_star_info_screen(int16_t star_index,
+                                  lv_event_cb_t ok_button_cb) {
   StarDatabase& star_database = StarDatabase::GetInstance();
   StarDatabaseEntry star_entry = star_database.ReadStarEntry(star_index);
 
   // Create a new screen for displaying star information
   lv_obj_t* screen = lv_obj_create(NULL);
   lv_obj_set_layout(screen, LV_LAYOUT_FLEX);
+  lv_obj_set_size(screen, LV_PCT(100), LV_PCT(100));
   lv_obj_set_flex_flow(screen, LV_FLEX_FLOW_COLUMN);
-  lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER,
+  lv_obj_set_flex_align(screen, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER,
                         LV_FLEX_ALIGN_SPACE_AROUND);
 
   // Create a label for the star name
@@ -62,7 +63,17 @@ lv_obj_t* create_star_info_screen(int16_t star_index) {
   lv_obj_set_style_pad_all(table, 4, LV_PART_ITEMS);
 
   lv_table_set_cell_value(table, 0, 0, "Other Names");
-  lv_table_set_cell_value(table, 0, 1, star_entry.names[1]);
+  char other_names[89];
+  if (star_entry.n_names >= 2) {
+    strncpy(other_names, star_entry.names[1], sizeof(other_names) - 1);
+    for (int i = 2; i < star_entry.n_names; ++i) {
+      snprintf(other_names, sizeof(other_names), "%s, %s", other_names,
+               star_entry.names[i]);
+    }
+  } else {
+    other_names[0] = '\0';  // No other names
+  }
+  lv_table_set_cell_value(table, 0, 1, other_names);
 
   lv_table_set_cell_value(table, 1, 0, "Constellation");
   lv_table_set_cell_value(table, 1, 1, star_entry.constellation);
@@ -85,6 +96,11 @@ lv_obj_t* create_star_info_screen(int16_t star_index) {
   char bv_str[6];
   snprintf(bv_str, sizeof(bv_str), "%.2f", star_entry.b_v);
   lv_table_set_cell_value(table, 6, 1, bv_str);
+
+  lv_obj_t* ok_button = lv_button_create(screen);
+  lv_obj_t* ok_button_label = lv_label_create(ok_button);
+  lv_label_set_text(ok_button_label, "OK");
+  lv_obj_add_event_cb(ok_button, ok_button_cb, LV_EVENT_CLICKED, NULL);
 
   return screen;
 }
