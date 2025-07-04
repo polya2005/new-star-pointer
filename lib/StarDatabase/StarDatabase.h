@@ -14,15 +14,14 @@
 #define STARDATABASE_FAIL_TO_READ_FILE -2
 
 struct StarDatabaseEntry {
-  uint8_t n_names;  // Number of names (up to 5)
-  char names[5]
-            [23];  // Names of the star, up to 5 names, each up to 22 characters
-  char constellation[20];  // Constellation name, up to 19 characters
+  char name[23];  // Name of the star, up to 22 characters + null terminator
+  char other_names[59];  // Other names, up to 58 characters + null terminator
+  char constellation[18];  // Constellation name, up to 17 characters
+  char spectral_type[18];  // Spectral type, up to 17 characters
+  uint8_t is_invalid = 1;  // 0 if valid, 1 if invalid
   double ra;               // Right Ascension in radians
   double dec;              // Declination in radians
   float mag;               // Magnitude of the star
-  char spectral_type[18];
-  uint8_t is_invalid = 1;  // 0 if valid, 1 if invalid
   float b_v;               // B-V color index
 };
 
