@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 import math
 import re
-import random
 from struct import Struct
 
 from ball_tree_3d import BallTree3D
+from trie import Trie
 from rich import print
 from naminglists import constellations, starnames, greeks
 
@@ -31,7 +31,8 @@ class DatabaseRecord:
     Represents a record in the database.
     """
 
-    names: list[str]
+    name: str
+    other_names: str  # separated by commas
     constellation: str
     ra: float  # Right Ascension, in radians
     dec: float  # Declination, in radians
@@ -43,15 +44,15 @@ class DatabaseRecord:
         """
         Packs the record into a binary format.
         """
-        binary_format = Struct("B 23s 23s 23s 23s 23s  20s d d f 18s 2x f 4x")
+        binary_format = Struct("23s 59s  18s 18s 2x d d f f")
         return binary_format.pack(
-            len(self.names) - self.names.count(""),
-            *[name.encode("utf-8") for name in self.names],
+            self.name.encode("utf-8"),
+            self.other_names.encode("utf-8"),
             self.constellation.encode("utf-8"),
+            self.spectral_type.encode("utf-8"),
             self.ra,
             self.dec,
             self.mag,
-            self.spectral_type.encode("utf-8"),
             self.b_v,
         )
 
@@ -136,14 +137,11 @@ if __name__ == "__main__":
             )
 
     parsed_names = [parse_name(record.name) for record in catalog]
-    # for i in range(5):
-    #     print(f"{i}: {max(len(names[i].encode()) for names, _ in parsed_names)}")
-    # print(f"Constellation: {max(len(cons.encode()) for _, cons in parsed_names)}")
-    # print(f"Spectral Type: {max(len(record.spectral_type.encode()) for record in catalog)}")
 
     db_records = [
         DatabaseRecord(
-            names=names,
+            name=names[0],
+            other_names=", ".join(names[1:]),
             constellation=constellation,
             ra=record.ra,
             dec=record.dec,
@@ -157,8 +155,22 @@ if __name__ == "__main__":
         for db_record in db_records:
             db_file.write(db_record.pack())
 
-    tree = BallTree3D(coords)
-    with open("db_files/ball_tree.bin", "wb") as ball_tree_file:
-        for node in tree.nodes:
-            ball_tree_file.write(node.pack())
-        ball_tree_file.write(Struct("< h").pack(tree.root))
+    # tree = BallTree3D(coords)
+    # with open("db_files/ball_tree.bin", "wb") as ball_tree_file:
+    #     for node in tree.nodes:
+    #         ball_tree_file.write(node.pack())
+    #     ball_tree_file.write(Struct("< h").pack(tree.root))
+
+    trie = Trie()
+    for i, db_record in enumerate(db_records):
+        for name in parsed_names[i][0]:
+            if name:
+                try:
+                    trie[name.encode("utf-8")] = i
+                except ValueError as e:
+                    print(f"Error adding name '{name}' at index {i}: {e}")
+                    raise e
+
+    with open("db_files/trie.bin", "wb") as trie_file:
+        for node in trie.nodes:
+            trie_file.write(node.pack())
