@@ -54,7 +54,7 @@ lv_obj_t* create_star_info_screen(int16_t star_index,
 
   // Create a label for the star name
   lv_obj_t* title = lv_label_create(screen);
-  lv_label_set_text(title, star_entry.names[0]);
+  lv_label_set_text(title, star_entry.name);
 
   // Create a table for displaying star information
   lv_obj_t* table = lv_table_create(screen);
@@ -63,17 +63,7 @@ lv_obj_t* create_star_info_screen(int16_t star_index,
   lv_obj_set_style_pad_all(table, 4, LV_PART_ITEMS);
 
   lv_table_set_cell_value(table, 0, 0, "Other Names");
-  char other_names[89];
-  if (star_entry.n_names >= 2) {
-    strncpy(other_names, star_entry.names[1], sizeof(other_names) - 1);
-    for (int i = 2; i < star_entry.n_names; ++i) {
-      snprintf(other_names, sizeof(other_names), "%s, %s", other_names,
-               star_entry.names[i]);
-    }
-  } else {
-    other_names[0] = '\0';  // No other names
-  }
-  lv_table_set_cell_value(table, 0, 1, other_names);
+  lv_table_set_cell_value(table, 0, 1, star_entry.other_names);
 
   lv_table_set_cell_value(table, 1, 0, "Constellation");
   lv_table_set_cell_value(table, 1, 1, star_entry.constellation);
